@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script>try{Typekit.load({ async: true });}catch(e){}</script>
+ <script src="https://www.w3schools.com/lib/w3.js"></script>
+<script https://www.w3schools.com/howtotryit.asp?filename=tryhow_css_dropdown_navbar_click></script>
+<link rel="shortcut icon" href="./img/icon.png" type="image/png">
+
+<style>
+html{scroll-behavior: smooth; cursor: url(./img/cursor.png) 12 12, auto; overflow: hidden;} 
+
+span:hover {color: white; cursor: url('./img/cursor2.png') 12 12, default !important;}
+
+::-webkit-input-placeholder{color:#333}
+
+body { background:url('./img/대지 1 사본.png'); 
+  background-size: 100%; background-opacity:0.5; height: 1080px; width: 1920px;}
+a{cursor: url(./img/cursor2.png) 12 12, auto; color: #021619;}
+a:link {text-decoration: none;}
+
+span:hover { color:white; background: #021619; text-decoration: wavy; transition: all 0.3s;}
+
+::selection {color: white; background: #021619;}
+
+
+/*상단텍스트박스, main, left, right 순*/
+#toptxt {width: 35%; height: 10%; margin:0 auto; margin-top: 3%;  z-index: 999; }
+
+#topline {width: 100%; height: 10.2%; position: absolute; top: 0%; left: 0%; border-bottom: 1.5px solid #021619; z-index: 998;}
+
+#menuline {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; z-index: 999;}
+#menuline:hover { opacity: .85; transition: all 0.2s; }
+
+#menuline2 {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; visibility: hidden; z-index: 998;}
+#menuline2:hover { opacity: .85; transition: all 0.2s; }
+
+#menu {width: 25%; height: 0px; position: absolute; left: 36.5%; bottom: 12%; overflow: hidden; z-index: 800; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 997; background: white; box-shadow: 2px 2px 12px #9f9f9f;}
+#hover08:hover {opacity: 0.8;}
+
+#flag {width: 10%; position: absolute; left: 0%; top: 17%; overflow: hidden; }
+
+
+/*상단 움직이는 화살표*/
+#line1 {width: 30%; height: 4%; position: absolute; top: 3.2%; left:3.5%; z-index: 555; overflow: hidden; animation: slide 1s infinite; }
+@keyframes slide {
+  0%  {
+    left: 2.5%; 
+  }
+  50% {
+    left: 3.5%;
+  }
+  100% {
+    left: 2.5%;
+  }
+}
+
+#line2 {width: 30%; height: 4%; position: absolute; top: 3.2%; right:3.5%; z-index: 555; overflow: hidden; animation: slide2 1s infinite;}
+@keyframes slide2 {
+  0%  {
+    right: 2.5%; 
+  }
+  50% {
+    right: 3.5%;
+  }
+  100% {
+    right: 2.5%;
+  }
+}
+#arrow {width: 100%; }
+
+
+/*탑버튼 right 1,2*/
+#topbtn {width: 3.5%; position: absolute; right: 1.5%; bottom: 3%; z-index: 999;}
+#topbtn:hover {opacity: .85; transition: all 0.2s;}
+
+
+#gradient {width: 100%; height: 89.8%; position: absolute; bottom: 0%; left: 0%; overflow: hidden; }
+
+
+#preimg {width: 52%; position: absolute; left: 35%; top: 20%; -webkit-filter: drop-shadow(7px 12px 25px #fff);}
+#preimg:hover {-webkit-filter: drop-shadow(7px 12px 25px #021619); z-index: 999;}
+
+
+#allbox {width: 96.5%; height: 60%; position: relative; margin: 0 auto; }
+#alltxt {width: 24%; height: 46%; overflow: hidden; float: left; margin-right: 1%; margin-bottom: 2%; }
+
+#txtbox1 {width: 94%; height: 22.5%; padding-left: 5%; border: 2px solid #021619; padding-bottom: 2%; background: white;}
+#txtmore1 {width: 94%; height: 70%; margin-bottom: 3%; float: left; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; background: white; }
+
+#righttop {width: 10%; transform: rotateZ(90deg); position: relative; float: left;}
+
+#previewimg {width: 100.4%; height: 19.9%; position: absolute; left: -0.4%; bottom: 0%; z-index: 983; }
+#dragimg {width: 10%; position: absolute;}
+#dragimg:hover {-webkit-filter: drop-shadow(4px 4px 12px #021619); z-index: 999; cursor: url('./img/cursor2.png') 12 12, default !important; z-index: 999;}
+
+
+.mat-div {
+    display: flex;
+    height: 10%;
+}
+
+.mat-label {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.4;
+    pointer-events: none;
+    position: absolute;
+    transform: translate3d(0, 22px, 0) scale(1);
+    transform-origin: left top;
+    transition: 240ms;
+}
+
+.mat-div.focused .mat-label {
+    opacity: 1;
+    transform: scale(0.75);
+}
+
+.mat-input {
+  align-self: flex-end;
+  position: relative;
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 2px 0;
+  font-size: 16px;
+  border-bottom:1px solid #e8e8e8;
+}
+
+.mat-input::-webkit-input-placeholder {
+    color: transparent;
+    transition: 240ms;
+}
+
+/*input tag*/
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Merriweather);
+
+*, 
+*:before, 
+*:after {
+   box-sizing: border-box; 
+}
+
+ 
+input, textarea {
+    width: 165%; 
+    height: 120%;
+     border:0; outline:0;
+     padding-top: 5%;
+     border-radius:0px;
+     display: block;
+     font-size: 0.9em; font-weight: 500; 
+     text-align: left; line-height: 1.7; color: #021619;
+     resize: none;
+     font-family: 'Apple SD Gothic Neo','Malgun Gothic', arial, sans-serif;
+    }
+
+
+  #input-submit {
+     color: white; 
+     background: red;
+     cursor: pointer;
+  }
+  #input-submit:hover {
+       box-shadow:0 1px 1px 1px #aaa; 
+    }
+  
+  textarea {
+      height: 126px;
+  }
+
+
+
+.half {
+  float: left;
+  width: 48%;
+  margin-bottom: 1em;
+}
+
+.right { width: 50%; }
+
+.left {
+     margin-right: 2%; 
+}
+
+
+@media (max-width: 480px) {
+  .half {
+     width: 100%; 
+     float: none;
+     margin-bottom: 0; 
+  }
+}
+
+
+/* Clearfix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+
+/*font*/
+h1, h2, h3, h4, h5, h6, h7, h8 {font-family: 'Apple SD Gothic Neo','Malgun Gothic', arial, sans-serif;}
+/*상단*/
+h1 {font-size: 5em; font-weight: 900; line-height: 0; color: #021619; text-align: center; -webkit-text-stroke: 1.4px #021619;}
+/*상단제목*/
+h2 {font-size: 8em; font-weight: 900; line-height: 0; color: #042830; text-align: center; letter-spacing:-2px;/*font-variant:small-caps;*/ }
+h2-1 {font-size: 8.8em; font-weight: 900; color: white; text-align: left; -webkit-text-stroke: 1.5px #021619; letter-spacing:-7px; }
+/*서브 타이틀*/
+h3 {font-size: 2.3em; font-weight: 900; text-align: left; line-height: 0; color:#021619; -webkit-text-stroke: 0.6px #021619;}
+h3:hover {color: white; -webkit-text-stroke: 1.3px #021619; }
+
+/*안의 텍스트*/
+h4 {font-size: 1.4em; font-weight: 500; text-align: left; line-height: 1.7; color: #021619; }
+h5 {font-size: 1.4em; font-weight: 700; color: #042830; text-align: center; line-height: 2.6;}
+/*제품이름*/
+h6 {font-size: 1.4em; font-weight: 600; color: #042830; text-align: center; line-height: 1.7;}
+/*Q + A*/
+h7 {font-size: 1em; font-weight: 500; color: #021619; text-align: left; line-height: 1.7; -webkit-text-stroke: 0.2px #021619;}
+/*menu 건들면 안됨*/
+h8 {font-size: 2.5em; font-weight: 900; color: #021619; text-align: center; line-height: 1.7; -webkit-text-stroke: 1px #021619;}
+h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: white; -webkit-text-stroke: 1.5px #021619;}
+
+
+
+</style>
+</head>
+<body>
+
+    <div id="line1">
+      <img src="./img/deco2.png" id="arrow">
+    </div>
+    
+    <div id="line2">
+      <img src="./img/deco2.png" id="arrow" style="transform: rotateZ(180deg);">
+    </div>
+
+  <div id="toptxt" style="margin-top: 3.2%;">
+    <h1>REGISTER</h1>
+  </div>
+
+  <div id="topline"></div>
+
+  <div>
+    
+
+    <img src="./img/menuline_2.png" id="menuline" title="menu">
+    <img src="./img/menuline2.png" id="menuline2">
+    <div id="menu">
+      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 37%; padding-right: 10%; padding-bottom: 5%;" title="main page"></a><br>
+      <a href="register.html"><h8>REGISTER</h8></a><br>
+      <a href="productlist.html"><h8>PRODUCT</h8></a>
+    </div>
+  </div>
+  </div>
+    
+
+  <div id="allbox">
+
+  <div id="alltxt">
+    <div id="txtbox1">
+      <h3>1_CATEGORY</h3>
+    </div>
+    <div id="txtmore1">
+      <h4 style="height: 100%;"><div class="mat-div" style="width: 95%;">
+        <div class="half left cf">
+          <textarea name="message" type="text" id="input-message" placeholder="무엇에 관한 고민인가요?"></textarea>
+        </div></h4>
+    </div>
+  </div>
+
+
+  <div id="alltxt">
+    <div id="txtbox1">
+      <h3>2_E-MAIL</h3>
+    </div>
+    <div id="txtmore1">
+      <h4><div class="half left cf">
+          <textarea name="message" type="text" id="input-message" placeholder="이메일을 적어주세요."></textarea>
+        </div></h4>
+    </div>
+  </div>
+
+  <div id="alltxt">
+    <div id="txtbox1">
+      <h3>3_WHO</h3>
+    </div>
+    <div id="txtmore1">
+      <h4><div class="half left cf">
+          <textarea name="message" type="text" id="input-message" placeholder="익명의 닉네임을 지어주세요."></textarea>
+        </div></h4>
+    </div>
+  </div>
+
+  <div id="alltxt">
+    <div id="txtbox1">
+      <h3>4_WHEN</h3>
+    </div>
+    <div id="txtmore1">
+      <h4><div class="half left cf">
+          <textarea name="message" type="text" id="input-message" placeholder="주로 언제 생기는 불편인가요?"></textarea>
+        </div></h4>
+    </div>
+  </div>
+
+  <div id="alltxt">
+    <div id="txtbox1">
+      <h3>5_WHERE</h3>
+    </div>
+    <div id="txtmore1">
+      <h4><div class="half left cf">
+          <textarea name="message" type="text" id="input-message" placeholder="어느 장소에서 느끼는 불편인가요?"></textarea>
+        </div></h4>
+    </div>
+  </div>
+
+  <div id="alltxt">
+    <div id="txtbox1">
+      <h3>6_WHAT</h3>
+    </div>
+    <div id="txtmore1">
+      <h4><div class="half left cf">
+          <textarea name="message" type="text" id="input-message" placeholder="무엇이 불편한가요?"></textarea>
+        </div></h4>
+    </div>
+  </div>
+
+  <div id="alltxt">
+    <div id="txtbox1">
+      <h3>7_HOW</h3>
+    </div>
+    <div id="txtmore1">
+      <h4><div class="half left cf">
+          <textarea name="message" type="text" id="input-message" placeholder="고민이 어떻게 해소되기를 바라나요?"></textarea>
+        </div></h4>
+    </div>
+  </div>
+
+  <div id="alltxt">
+    <div id="txtbox1">
+      <h3>8_WHY</h3>
+    </div>
+    <div id="txtmore1">
+      <h4><div class="half left cf">
+          <textarea name="message" type="text" id="input-message" placeholder="상세한 설명은 물품 제작에 도움됩니다."></textarea>
+        </div></h4>
+    </div>
+  </div>
+
+  </div>
+
+
+<script type="text/javascript">
+
+//menu click
+      var toggle = "off";
+        
+       menuline.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            menu.style.opacity = "1";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "240px";
+            menu.style.visibility = "visible";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "0";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "visible";
+            menuline2.style.transition = "all 0.5s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            menu.style.opacity = "0";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "0px";
+            menu.style.visibility = "hidden";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "1";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.5s";
+            }
+      }
+
+//작품 설명 칸
+
+var toggle = "off";
+        
+       txtbox1.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            txtmore1.style.opacity = "1";
+            txtmore1.style.height = "97px";
+            txtmore1.style.visibility = "visible";
+            txtmore1.style.transition = "all 0.3s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            txtmore1.style.opacity = "0";
+            txtmore1.style.height = "0px";
+            txtmore1.style.visibility = "hidden";
+            txtmore1.style.transition = "all 0.3s";
+
+            txtmore2.style.opacity = "0";
+            txtmore2.style.height = "0px";
+            txtmore2.style.visibility = "hidden";
+            txtmore2.style.transition = "all 0.3s";
+
+            txtmore3.style.opacity = "0";
+            txtmore3.style.height = "0px";
+            txtmore3.style.visibility = "hidden";
+            txtmore3.style.transition = "all 0.3s";
+
+            txtmore4.style.opacity = "0";
+            txtmore4.style.height = "0px";
+            txtmore4.style.visibility = "hidden";
+            txtmore4.style.transition = "all 0.3s";
+            }
+      }
+
+var toggle = "off";
+        
+       txtbox2.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            txtmore2.style.opacity = "1";
+            txtmore2.style.height = "283px";
+            txtmore2.style.visibility = "visible";
+            txtmore2.style.transition = "all 0.3s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            txtmore1.style.opacity = "0";
+            txtmore1.style.height = "0px";
+            txtmore1.style.visibility = "hidden";
+            txtmore1.style.transition = "all 0.3s";
+
+            txtmore2.style.opacity = "0";
+            txtmore2.style.height = "0px";
+            txtmore2.style.visibility = "hidden";
+            txtmore2.style.transition = "all 0.3s";
+
+            txtmore3.style.opacity = "0";
+            txtmore3.style.height = "0px";
+            txtmore3.style.visibility = "hidden";
+            txtmore3.style.transition = "all 0.3s";
+            
+            txtmore4.style.opacity = "0";
+            txtmore4.style.height = "0px";
+            txtmore4.style.visibility = "hidden";
+            txtmore4.style.transition = "all 0.3s";
+            }
+      }
+
+var toggle = "off";
+        
+       txtbox3.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            txtmore3.style.opacity = "1";
+            txtmore3.style.height = "194px";
+            txtmore3.style.visibility = "visible";
+            txtmore3.style.transition = "all 0.3s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            txtmore1.style.opacity = "0";
+            txtmore1.style.height = "0px";
+            txtmore1.style.visibility = "hidden";
+            txtmore1.style.transition = "all 0.3s";
+
+            txtmore2.style.opacity = "0";
+            txtmore2.style.height = "0px";
+            txtmore2.style.visibility = "hidden";
+            txtmore2.style.transition = "all 0.3s";
+
+            txtmore3.style.opacity = "0";
+            txtmore3.style.height = "0px";
+            txtmore3.style.visibility = "hidden";
+            txtmore3.style.transition = "all 0.3s";
+            
+            txtmore4.style.opacity = "0";
+            txtmore4.style.height = "0px";
+            txtmore4.style.visibility = "hidden";
+            txtmore4.style.transition = "all 0.3s";
+            }
+      }
+
+var toggle = "off";
+        
+       txtbox4.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            txtmore4.style.opacity = "1";
+            txtmore4.style.height = "570px";
+            txtmore4.style.visibility = "visible";
+            txtmore4.style.transition = "all 0.3s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            txtmore1.style.opacity = "0";
+            txtmore1.style.height = "0px";
+            txtmore1.style.visibility = "hidden";
+            txtmore1.style.transition = "all 0.3s";
+
+            txtmore2.style.opacity = "0";
+            txtmore2.style.height = "0px";
+            txtmore2.style.visibility = "hidden";
+            txtmore2.style.transition = "all 0.3s";
+
+            txtmore3.style.opacity = "0";
+            txtmore3.style.height = "0px";
+            txtmore3.style.visibility = "hidden";
+            txtmore3.style.transition = "all 0.3s";
+            
+            txtmore4.style.opacity = "0";
+            txtmore4.style.height = "0px";
+            txtmore4.style.visibility = "hidden";
+            txtmore4.style.transition = "all 0.25s";
+          }
+        }
+          
+  (function(){
+    var d = false;
+    var target,dx,dy;
+    var t = document.getElementsByClassName("drag");
+    for(var i=0; i<t.length; i++){
+      t[i].style.display = "block";
+      t[i].style.position = "absolute";
+      t[i].style.cursor = "pointer";
+      t[i].ondragstart = function(e){e.preventDefault();};
+      t[i].onmousedown = function(e){ d = true; dx = e.offsetX; dy = e.offsetY; target = e.target;}
+      t[i].onmouseup = function(){ d = false;}
+      window.onmousemove = function(e){ 
+        if(d){ target.style.left = (e.clientX - dx) + "px";
+          target.style.top = (e.clientY - dy) + "px";}
+      }
+    }
+  })();
+
+</script>
+<script type="text/javascript">
+$('.mat-input').on('focus blur', function (e) {
+    $(this).parents('.mat-div').toggleClass('focused', (e.type === 'focus' || this.value.length > 5));
+}).trigger('blur');
+
+
+$('.mat-input').on('focus blur',function(e){
+  $(this).parents('.mat-div').toggleClass('focused', (e.type === 'focus' || this.value.length > 1));
+});
+</script>
+
+
+</body>
+</html>

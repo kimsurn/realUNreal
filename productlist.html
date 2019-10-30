@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://use.typekit.net/dcf1ame.js"></script>
+ <script>try{Typekit.load({ async: true });}catch(e){}</script>
+ <script src="https://www.w3schools.com/lib/w3.js"></script>
+<script https://www.w3schools.com/howtotryit.asp?filename=tryhow_css_dropdown_navbar_click></script>
+<link rel="shortcut icon" href="./img/icon.png" type="image/png">
+<title>Product List</title>
+<style>
+html{ scroll-behavior: smooth; cursor: url(./img/cursor.png) 12 12, auto; } 
+
+img:hover {cursor: url('./img/cursor2.png') 12 12, default !important;}
+span:hover {color: white; cursor: url('./img/cursor2.png') 12 12, default !important;}
+
+body { background:url('./img/list111.jpg'); 
+  background-size: 100%; background-opacity:0.5; scroll-behavior: smooth;}
+a{cursor: url(./img/cursor2.png) 12 12, auto; color: #021619;}
+a:link {text-decoration: none;}
+a:hover{ -webkit-text-stroke: 2px #021619; color: white; }
+
+span:hover { color:white; background: #021619; text-decoration: wavy; transition: all 0.3s;}
+
+::selection {color: white; background: #021619;}
+
+/*상단텍스트박스, main, left, right 순*/
+#toptxt {width: 35%; height: 10%; margin:0 auto; margin-top: 3%;  z-index: 999; }
+
+#topline {width: 100%; height: 10.2%; position: absolute; top: 0%; left: 0%; border-bottom: 1.5px solid #021619; z-index: 998;}
+
+#menuline {width: 3.5%; position: fixed; left: 48.2%; bottom: 3%; z-index: 985;}
+#menuline:hover { opacity: .85; transition: all 0.2s; }
+
+#menuline2 {width: 3.5%; position: fixed;left: 48.2%; bottom: 3%; visibility: hidden; z-index: 984;}
+#menuline2:hover { opacity: .85; transition: all 0.2s; }
+
+#menu {width: 25%; height: 0px; position: fixed; left: 36.5%; bottom: 12%; overflow: hidden; z-index: 800; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 980; background: white; box-shadow: 2px 2px 12px #9f9f9f;}
+#hover08:hover {opacity: 0.8;}
+
+/*탑버튼 right 1,2*/
+#topbtn {width: 3.5%; position: fixed; right: 1.5%; bottom: 3%; z-index: 999;}
+#topbtn:hover {opacity: .85; transition: all 0.2s;}
+
+/*product list*/
+#hiddenscroll {overflow: hidden; height: 100%; padding-top: 0%;}
+#list {width: 51%; height: 93.5%; margin-left: 4.5%; margin-top: 10%; position: relative; padding-top: 1%; background: white;}
+
+#txt {float: left; width: 70%; margin-top: -4.7%; margin-bottom: 1%; }
+#txtbox {width: 100%; height: 8%; float: left; filter: blur(0px); }
+#slidetxt {float: left; width: 100%; height: 5%; margin-top: -14%; animation: slide 4s infinite;}
+
+
+@keyframes slide {
+  0% {
+    top: 200px;
+  }
+  
+  100%{
+    top: -100px;
+  }
+
+}
+
+
+#bigbox {width: 52%; height: 100%; position: absolute; right: 0%;}
+#arrowbox1 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox2 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox3 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox4 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox5 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox6 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox7 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox8 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox9 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox10 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+#arrowbox11 {width: 70%; height: 10%; float: right;  margin-bottom: 12.5%; opacity: 0;}
+
+#arrow {width: 100%; margin-top: 3.7%; margin-bottom: 3.7%; }
+
+#test {width: 94.3%; height: 100%; position: absolute; right: 0%; background: lightgrey; filter: blur(15px); top: 0%;opacity: 0;}
+
+#pretxt {width: 10%; height: 100%; position: absolute; top: 0%; right: 1.5%; }
+#preimg {width: 41%; height: 100%; position: fixed; top: 0%; right: 0%; background: white; }
+
+
+
+
+/*font*/
+h1, h2, h3, h4, h5, h6, h7, h8 { font-family: 'Apple SD Gothic Neo','Malgun Gothic', arial, sans-serif; }
+/*카테고리*/
+h1 {font-size: 2em; font-weight: 900; color: #021619; text-align: left; -webkit-text-stroke: 1px #021619;}
+/*리스트 품목*/
+h2 {font-size: 6.5em; font-weight: 900; color: #021619; text-align: left; line-height: 0; letter-spacing: 3px; -webkit-text-stroke: 3px #021619; line-height: 0;}
+/*하단 설명*/
+h3 {font-size: 1.5em; font-weight: 900; color: white; text-align: left; -webkit-text-stroke: 0.5px #021619; line-height: 1;}
+/*pretxt*/
+h4 {font-size: 4.8em; font-weight: 900; color: white; text-align: center; -webkit-text-stroke: 1.5px #021619; letter-spacing: -3px; line-height: 1.2;}
+
+/*menu 건들면 안됨*/
+h8 {font-size: 2.5em; font-weight: 900; color: #021619; text-align: center; line-height: 1.7; -webkit-text-stroke: 1px #021619;}
+h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: white; -webkit-text-stroke: 1.5px #021619;}
+</style>
+</head>
+
+<body>
+
+	<div>
+    <a href="productlist.html" title="top"><img src="./img/topbtn.png" id="topbtn" title="next" style="transform: rotateZ(90deg);"></a>
+
+    <img src="./img/menuline_2.png" id="menuline" title="menu">
+    <img src="./img/menuline2.png" id="menuline2">
+    <div id="menu">
+      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 37%; padding-right: 10%; padding-bottom: 5%;" title="main page"></a><br>
+      <a href="register.html"><h8>REGISTER</h8></a><br>
+      <a href="productlist.html"><h8>PRODUCT</h8></a>
+    </div>
+  </div>
+
+<div id="hiddenscroll">
+<div id="list" style=" margin-top: 3%;">
+
+<!--
+	<div id="bigbox">
+		<div style="position: relative;">
+		<div id="arrowbox1">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox2">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox3">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox4">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox5">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox6">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox7">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox8">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox9">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox10">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		<div id="arrowbox11">
+			<img src="./img/deco2.gif" id="arrow" loop=infinite>
+		</div>
+		</div>
+	</div>
+	-->
+
+
+	<div id="txt" style="width: 100%; padding-top: 1%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay1(this)" onmouseout="gifnone1(this)"><a href="product_no.1.html">PILLOW</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="pillowslide" style="opacity: 0;">잠 저장소 베개 / No.1 / 2019 Aug 15</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay2(this)" onmouseout="gifnone2(this)"> <a href="product_no.2.html">CAPSULE</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="capsuleslide" style="opacity: 0;">용사 완치 감기약 / No.2 / 2019 Aug 22</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay3(this)" onmouseout="gifnone3(this)"><a href="product_no.3.html">LAPTOP</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="laptopslide" id="laptopslide" style="opacity: 0;">스티커 노트북 / No.3 / 2019 Aug 29</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay4(this)" onmouseout="gifnone4(this)"><a href="product_no.4.html">ROULETTE</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="rouletteslide" id="rouletteslide" style="opacity: 0;">통학러 룰렛 / No.4 / 2019 Sep 5</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay5(this)" onmouseout="gifnone5(this)"><a href="product_no.5.html">APPLICATION</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="appslide" id="appslide" style="opacity: 0;">뇌 속 중개자 앱 / No.5 / 2019 Sep 12</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay6(this)" onmouseout="gifnone6(this)"><a href="product_no.6.html">SUPPRESSOR</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="beltslide" style="opacity: 0;">생리현상 소리 억제기 / No.6 / 2019 Sep 19</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay7(this)" onmouseout="gifnone7(this)"><a href="product_no.7.html">MASK</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="maskslide" style="opacity: 0;">개코가면 / No.7 / 2019 Sep 26</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 70%;">
+	      <h2 onmouseover="gifplay8(this)" onmouseout="gifnone8(this)"><a href="product_no.8.html">COLOR SPUIT</a></h2>
+	      <div id="slidetxt" style="margin-top: -9.8%;">
+	        <h3 id="spuitslide" style="opacity: 0;">현실 컬러 스포이드 / No.8 / 2019 Oct 3</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay9(this)" onmouseout="gifnone9(this)"><a href="product_no.9.html">MAGNIFIER</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="magnifierslide" style="opacity: 0;">원산지 돋보기 / No.9 / 2019 Oct 10</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 70%;">
+	      <h2 onmouseover="gifplay10(this)" onmouseout="gifnone10(this)"><a href="product_no.10.html">EYE DROPS</a></h2>
+	      <div id="slidetxt" style="margin-top: -9.5%;">
+	        <h3 id="eyeslide" style="opacity: 0;">몽골인 안약 / No.10 / 2019 Oct 17</h3>
+	      </div>
+		</div>
+	</div>
+
+	<div id="txt" style="width: 100%;">
+		<div id="txtbox" style="width: 45%;">
+	      <h2 onmouseover="gifplay11(this)" onmouseout="gifnone11(this)"><a href="product_no.11.html">VITAMIN</a></h2>
+	      <div id="slidetxt">
+	        <h3 id="vitaminslide" style="opacity: 0; margin-left: 2%;">3분 발포 비타민 / No.11 / 2019 Oct 24</h3>
+	      </div>
+		</div>
+	</div>
+
+</div>
+</div>
+
+ <!--right-->
+<div id="preimg">
+
+	<div id="pretxt">
+		<div style="position: absolute; ">
+		<h4 id="pillowtxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">잠 저장소 베개</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="capsuletxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">용사 감기 완치약</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="laptoptxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">스티커 노트북</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="roulettetxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">통학러 룰렛</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="apptxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">뇌 속 중개자 앱</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="belttxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">생리현상 소리 억제기</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="masktxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">개코 가면</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="spuittxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">현실 컬러 스포이드</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="magnifiertxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">원산지 돋보기</h4>
+		</div>
+
+		<div style="position: absolute; ">
+		<h4 id="eyetxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">몽골인 안약</h4>
+		</div>
+
+		<div style="position: absolute;">
+		<h4 id="vitamintxt" style="animation: slide 4s infinite; position: absolute; opacity: 0;">3분 발포 비타민</h4>
+		</div>
+	</div>
+
+	<img src="./img/pillow.png" id="pillow" style="top: 35%; left: 1%; width: 94%; position: absolute; opacity: 0;">
+
+	<img src="./img/capsule.png" id="capsule" style="top: 20%; right: 25%; width: 50%; position: absolute; opacity: 0;">
+
+	<img src="./img/laptop.png" id="laptop" style="top: 35%; right: 12%; width:92%; position: absolute; opacity: 0;">
+
+	<img src="./img/roulette.png" id="roulette" style="top: 20%; right: 25%; width:50%; position: absolute; opacity: 0;">
+
+	<img src="./img/app.png" id="app" style="top: 37%; right: 18%; width:57%; position: absolute; opacity: 0;">
+
+	<img src="./img/belt.png" id="belt" style="top: 25%; right: 25%; width:40%; position: absolute; opacity: 0;">
+
+	<img src="./img/mask.png" id="mask" style="top: 33%; right: 13%; width:75%; position: absolute; opacity: 0;">
+
+	<img src="./img/spuit.png" id="spuit" style="top: 22%; right: 25%; width:18%; position: absolute; opacity: 0;">
+
+	<img src="./img/magnifier.png" id="magnifier" style="top: 30%; right: 25%; width:73%; position: absolute; opacity: 0;">
+
+	<img src="./img/eye.png" id="eye" style="top: 25%; right: 25%; width:40%; position: absolute; opacity: 0;">
+
+	<img src="./img/vitamin.png" id="vitamin" style="top: 40%; right: 25%; width:75%; position: absolute; opacity: 0;">
+
+</div>
+
+
+<div>
+   <a href="#"><img src="./img/topbtn.png" id="topbtn" title="TOP"></a>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+function gifplay1(x) {
+	  pillowtxt.style.opacity = "1";
+	  pillowtxt.style.transition = "all 2s";
+	  pillow.style.opacity = "1";
+	  pillow.style.transition = "all 2.5s";
+	  pillowslide.style.opacity = "1";
+	  pillowslide.style.transition = "all 0.2s";
+	}
+function gifnone1(x) {
+	  pillowtxt.style.opacity = "0";
+	  pillowtxt.style.transition = "all 0.4s";
+	  pillow.style.opacity = "0";
+	  pillow.style.transition = "all 0.1s";
+	  pillowslide.style.opacity = "0";
+	  pillowslide.style.transition = "all 0.4s";
+	}
+
+///222
+function gifplay2(x) {
+	capsuletxt.style.opacity = "1";
+	capsuletxt.style.transition = "all 2s";
+	capsule.style.opacity = "1";
+	capsule.style.transition = "all 2.5s";
+	capsuleslide.style.opacity = "1";
+	capsuleslide.style.transition = "all 0.2s";
+}
+function gifnone2(x) {
+	capsuletxt.style.opacity = "0";
+	capsuletxt.style.transition = "all 0.4s";
+	capsule.style.opacity = "0";
+	capsule.style.transition = "all 0.1s";
+	capsuleslide.style.opacity = "0";
+	capsuleslide.style.transition = "all 0.4s";
+}
+
+///333
+function gifplay3(x) {
+	  laptoptxt.style.opacity = "1";
+	  laptoptxt.style.transition = "all 0.5s";
+	  laptop.style.opacity = "1";
+	  laptop.style.transition = "all 0.7s";
+	  laptopslide.style.opacity = "1";
+	  laptopslide.style.transition = "all 0.2s";
+	}
+function gifnone3(x) {
+	  laptoptxt.style.opacity = "0";
+	  laptoptxt.style.transition = "all 0.5s";
+	  laptop.style.opacity = "0";
+	  laptop.style.transition = "all 0.7s";
+	  laptopslide.style.opacity = "0";
+	  laptopslide.style.transition = "all 0.4s";
+	}
+
+///444
+function gifplay4(x) {
+	  roulettetxt.style.opacity = "1";
+	  roulettetxt.style.transition = "all 0.5s";
+	  roulette.style.opacity = "1";
+	  roulette.style.transition = "all 0.7s";
+	  rouletteslide.style.opacity = "1";
+	  rouletteslide.style.transition = "all 0.2s";
+	}
+function gifnone4(x) {
+	  roulettetxt.style.opacity = "0";
+	  roulettetxt.style.transition = "all 0.5s";
+	  roulette.style.opacity = "0";
+	  roulette.style.transition = "all 0.7s";
+	  rouletteslide.style.opacity = "0";
+	  rouletteslide.style.transition = "all 0.4s";
+	}
+
+///555
+function gifplay5(x) {
+	  apptxt.style.opacity = "1";
+	  apptxt.style.transition = "all 0.5s";
+	  app.style.opacity = "1";
+	  app.style.transition = "all 0.7s";
+	  appslide.style.opacity = "1";
+	  appslide.style.transition = "all 0.2s";
+	}
+function gifnone5(x) {
+	  apptxt.style.opacity = "0";
+	  apptxt.style.transition = "all 0.5s";
+	  app.style.opacity = "0";
+	  app.style.transition = "all 0.7s";
+	  appslide.style.opacity = "0";
+	  appslide.style.transition = "all 0.4s";
+	}
+
+
+///666
+function gifplay6(x) {
+	  belttxt.style.opacity = "1";
+	  belttxt.style.transition = "all 0.5s";
+	  belt.style.opacity = "1";
+	  belt.style.transition = "all 0.7s";
+	  beltslide.style.opacity = "1";
+	  beltslide.style.transition = "all 0.2s";
+	}
+function gifnone6(x) {
+	  belttxt.style.opacity = "0";
+	  belttxt.style.transition = "all 0.5s";
+	  belt.style.opacity = "0";
+	  belt.style.transition = "all 0.7s";
+	  beltslide.style.opacity = "0";
+	  beltslide.style.transition = "all 0.4s";
+	}
+
+
+///777
+function gifplay7(x) {
+	  masktxt.style.opacity = "1";
+	  masktxt.style.transition = "all 0.5s";
+	  mask.style.opacity = "1";
+	  mask.style.transition = "all 0.7s";
+	  maskslide.style.opacity = "1";
+	  maskslide.style.transition = "all 0.2s";
+	}
+function gifnone7(x) {
+	  masktxt.style.opacity = "0";
+	  masktxt.style.transition = "all 0.5s";
+	  mask.style.opacity = "0";
+	  mask.style.transition = "all 0.7s";
+	  maskslide.style.opacity = "0";
+	  maskslide.style.transition = "all 0.4s";
+	}
+
+
+///888
+function gifplay8(x) {
+	  spuittxt.style.opacity = "1";
+	  spuittxt.style.transition = "all 0.5s";
+	  spuit.style.opacity = "1";
+	  spuit.style.transition = "all 0.7s";
+	  spuitslide.style.opacity = "1";
+	  spuitslide.style.transition = "all 0.2s";
+	}
+function gifnone8(x) {
+	  spuittxt.style.opacity = "0";
+	  spuittxt.style.transition = "all 0.5s";
+	  spuit.style.opacity = "0";
+	  spuit.style.transition = "all 0.7s";
+	  spuitslide.style.opacity = "0";
+	  spuitslide.style.transition = "all 0.4s";
+	}
+
+
+///999
+function gifplay9(x) {
+	  magnifiertxt.style.opacity = "1";
+	  magnifiertxt.style.transition = "all 0.5s";
+	  magnifier.style.opacity = "1";
+	  magnifier.style.transition = "all 0.7s";
+	  magnifierslide.style.opacity = "1";
+	  magnifierslide.style.transition = "all 0.2s";
+	}
+function gifnone9(x) {
+	  magnifiertxt.style.opacity = "0";
+	  magnifiertxt.style.transition = "all 0.5s";
+	  magnifier.style.opacity = "0";
+	  magnifier.style.transition = "all 0.7s";
+	  magnifierslide.style.opacity = "0";
+	  magnifierslide.style.transition = "all 0.4s";
+	}
+
+
+///10
+function gifplay10(x) {
+	  eyetxt.style.opacity = "1";
+	  eyetxt.style.transition = "all 0.5s";
+	  eye.style.opacity = "1";
+	  eye.style.transition = "all 0.7s";
+	  eyeslide.style.opacity = "1";
+	  eyeslide.style.transition = "all 0.2s";
+	}
+function gifnone10(x) {
+	  eyetxt.style.opacity = "0";
+	  eyetxt.style.transition = "all 0.5s";
+	  eye.style.opacity = "0";
+	  eye.style.transition = "all 0.7s";
+	  eyeslide.style.opacity = "0";
+	  eyeslide.style.transition = "all 0.4s";
+	}
+
+
+///11
+function gifplay11(x) {
+	  vitamintxt.style.opacity = "1";
+	  vitamintxt.style.transition = "all 0.5s";
+	  vitamin.style.opacity = "1";
+	  vitamin.style.transition = "all 0.7s";
+	  vitaminslide.style.opacity = "1";
+	  vitaminslide.style.transition = "all 0.2s";
+	}
+function gifnone11(x) {
+	  vitamintxt.style.opacity = "0";
+	  vitamintxt.style.transition = "all 0.5s";
+	  vitamin.style.opacity = "0";
+	  vitamin.style.transition = "all 0.7s";
+	  vitaminslide.style.opacity = "0";
+	  vitaminslide.style.transition = "all 0.4s";
+	}
+
+
+//menu click
+      var toggle = "off";
+        
+       menuline.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            menu.style.opacity = "1";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "240px";
+            menu.style.visibility = "visible";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "0";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "visible";
+            menuline2.style.transition = "all 0.5s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            menu.style.opacity = "0";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "0px";
+            menu.style.visibility = "hidden";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "1";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.5s";
+            }
+      }
+</script>
+
+</body>
+</html>

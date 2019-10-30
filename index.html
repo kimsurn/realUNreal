@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script>try{Typekit.load({ async: true });}catch(e){}</script>
+ <script src="https://www.w3schools.com/lib/w3.js"></script>
+<script https://www.w3schools.com/howtotryit.asp?filename=tryhow_css_dropdown_navbar_click></script>
+<link rel="shortcut icon" href="./img/icon.png" type="image/png">
+
+<style>
+html{scroll-behavior: smooth; cursor: url(./img/cursor5.png) 12 12, auto;}
+
+img:hover {cursor: url('./img/cursor2.png') 12 12, default !important;}
+span:hover {color: white;cursor: url('./img/cursor2.png') 12 12, default !important;}
+
+body { background:url('./img/main+11.png'); 
+  background-size: 100%; background-opacity:0.5; overflow: hidden;}
+a{cursor: url(./img/cursor2.png) 12 12, auto; color: #021619;}
+a:link {color: #021619; text-decoration: none;}
+a:hover{   }
+
+span:hover { color:#021619;  }
+
+::selection {color: white; background: #021619;}
+
+/*상단텍스트박스, main, left, right 순*/
+#toptxt {width: 35%; height: 10%; margin:0 auto; margin-top: -0.2%;  z-index: 777; visibility: visible;}
+#toptxt1 {width: 35%; height: 10%; margin:0 auto; margin-top: -4.8%;  z-index: 777; visibility: hidden;}
+#toptxt2 {width: 35%; height: 10%; margin:0 auto; margin-top: -3.5%;   z-index: 777; opacity: 0;}
+
+
+#menuline {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; z-index: 0;}
+#menuline:hover { opacity: .85; transition: all 0.2s; }
+
+#menuline2 {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; visibility: hidden; z-index: 0;}
+#menuline2:hover { opacity: .85; transition: all 0.2s; }
+#menu {width: 25%; height: 0px; position: absolute; left: 36.5%; bottom: 12%; overflow: hidden; z-index: 800; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 0; background: white; box-shadow: 2px 2px 12px #9f9f9f;}
+#hover08:hover {opacity: 0.8;}
+
+/*상단 움직이는 화살표*/
+#line1 {width: 30%; height: 4%; position: absolute; top: 4%; left:3.5%; z-index: 555; overflow: hidden; animation: slide 1s infinite; }
+@keyframes slide {
+  0%  {
+    left: 2.5%; 
+  }
+  50% {
+    left: 3.5%;
+  }
+  100% {
+    left: 2.5%;
+  }
+}
+
+
+#line2 {width: 30%; height: 4%; position: absolute; top: 4%; right:3.5%; z-index: 555; overflow: hidden; animation: slide2 1s infinite;}
+@keyframes slide2 {
+  0%  {
+    right: 2.5%; 
+  }
+  50% {
+    right: 3.5%;
+  }
+  100% {
+    right: 2.5%;
+  }
+}
+#arrow {width: 100%; }
+
+
+#sidetxt1 {width: 20%; height: 10%; position: absolute; top: 47%; left: -5.5%; transform: rotateZ(-90deg); }
+#sidetxt2 {width: 3%; height: 30%; position: absolute; top: 40%; right: 2.3%; }
+
+
+/*left, right logo*/
+#logo11 {width: 23.3%; height: 10%; position: absolute; left: 38.5%; top: 47.5%; border: 1.5px solid #021619; box-shadow: 4px 4px 12px #999; background: white; }
+#logo111 {width: 23.3%; height: 10%; position: absolute; left: 38.5%; top: 47.5%; box-shadow: 4px 4px 12px #999; background: #021619; }
+/*mainlogo 1,2*/
+#logo1 {width: 13%; height: 7%; position: absolute; left: 43.5%; bottom: 3%;  box-shadow: 4px 4px 12px #999; background: white; z-index: 999;}
+#logo1_1 {width: 44%; height: 100%; float: left; border: 1.5px solid #021619; animation: blink1 2s infinite; }
+
+@keyframes blink1 {
+  0%  {
+    opacity: 100%; 
+  }
+  50% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%
+  }
+}
+
+#logo1_1:hover {background: #021619; opacity: 0.2;}
+#logo1_2 {width: 51.5%; height: 100%; float: left; background: #021619; border: 1.5px solid #021619; animation: blink1 2s infinite;}
+#logo1_2:hover {background: #f1f1f1;}
+
+
+#pline1 {width: 4.7%; position: absolute; top: 48.5%; left: 1.4%; }
+#pline2 {width: 4.7%; position: absolute; top: 48.5%; right: 1.4%; }
+
+/*탑버튼 right 1,2*/
+#topbtn {width: 3.5%; position: absolute; right: 1.5%; bottom: 3%;}
+#topbtnn {width: 3.5%; position: absolute; right: 1.5%; bottom: 3%; visibility: hidden;}
+#topbtn:hover {opacity: .85; transition: all 0.2s;}
+#topbtnn:hover {opacity: .85; transition: all 0.2s;}
+/*탑버튼 left 1,2*/
+#topbtn1 {width: 3.5%; position: absolute; left: 1.5%; bottom: 3%;}
+#topbtn11 {width: 3.5%; position: absolute; left: 1.5%; bottom: 3%; visibility: hidden;}
+#topbtn1:hover {opacity: .8; transition: all 0.2s;}
+#topbtn11:hover {opacity: .8; transition: all 0.2s;}
+
+/*호버시 나타날 이미지*/
+#preview1 {width: 3.5%; position: absolute; top: 47.2%; left: 32.8%; background: white; opacity: 0;}
+#preview2 {width: 4.2%; position: absolute; top: 50%; left: 36%; background: white; opacity: 0;}
+#preview3 {width: 5.7%; position: absolute; top: 50%; left: 38.7%; background: white; opacity: 0;}
+#preview4 {width: 7.6%; position: absolute; top: 46.5%; left: 24.8%; background: grey; }
+#preview5 {width: 7.6%; position: absolute; top: 46.5%; left: 24.8%; background: grey; }
+
+#preimg {width: 100%;}
+
+#q1 {width: 11%; height: 17%; position: absolute; top: 13%; left: 10%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%; border: 2px solid #021619; background: white;}
+#q2 {width: 11%; height: 17%; position: absolute; top: 20%; left: 22%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q3 {width: 11%; height: 17%; position: absolute; top: 42%; left: 28%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q4 {width: 11%; height: 17%; position: absolute; top: 67%; left: 7%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q5 {width: 11%; height: 17%; position: absolute; top: 60%; left: 32%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q6 {width: 11%; height: 17%; position: absolute; top: 25%; left: 41%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q7 {width: 11%; height: 17%; position: absolute; top: 50%; right: 30%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q8 {width: 11%; height: 17%; position: absolute; top: 40%; right: 20%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q9 {width: 11%; height: 17%; position: absolute; top: 10%; right: 10%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q10 {width: 11%; height: 17%; position: absolute; top: 71%; right: 13%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+#q11 {width: 11%; height: 17%; position: absolute; top: 67%; right: 25%; padding-top: 1.05%; padding-left: 2%; padding-right: 2%; padding-bottom: 1%;border: 2px solid #021619; background: white;}
+
+#productdraw img {width: 100%; }
+#capsule {width: 12%; position: absolute; top: 12%; left: 12%; }
+#capsule:hover {z-index: 999; -webkit-filter: drop-shadow(6px 6px 22px #021619);}
+#pillow {width: 25%; position: absolute; top: 32%; left: 15%; }
+#pillow:hover {z-index: 999; -webkit-filter: drop-shadow(6px 6px 22px #021619); cursor: url('./img/pillowcursor.png') 12 12, default !important;}
+#belt {width: 10%; position: absolute; top: 27%; right: 16%; }
+#belt:hover {z-index: 999; -webkit-filter: drop-shadow(6px 6px 22px #021619);}
+#mask {width: 18%; position: absolute; bottom: 4%; right: 25%; }
+#mask:hover {z-index: 999; -webkit-filter: drop-shadow(6px 6px 22px #021619);}
+#app {width: 12%; position: absolute; bottom: 15%; right: 8%; }
+#app:hover {z-index: 999; -webkit-filter: drop-shadow(6px 6px 22px #021619);}
+#roulette {width: 18%; position: absolute; bottom: 2%; left: 8%; }
+#roulette:hover {z-index: 999; -webkit-filter: drop-shadow(6px 6px 22px #021619);}
+#laptop {width: 23%; position: absolute; top: 25%; left: 52%; }
+#laptop:hover {z-index: 999; -webkit-filter: drop-shadow(7px 12px 25px #021619);}
+#mirror {width: 3.5%; position: absolute; bottom: 6%; left: 32%; }
+#mirror:hover {z-index: 999; -webkit-filter: drop-shadow(7px 12px 25px #021619);}
+#magnifier {width: 18%; position: absolute; top: 31%; left: 43%; }
+#magnifier:hover {z-index: 999; -webkit-filter: drop-shadow(7px 12px 25px #021619);}
+#vitamin {width: 17%; position: absolute; bottom: 12%; left: 35%; }
+#vitamin:hover {z-index: 999; -webkit-filter: drop-shadow(7px 12px 25px #021619);}
+
+
+/*font*/
+h1, h2, h3, h4, h5, h6, h7, h8 {font-family: 'Apple SD Gothic Neo','Malgun Gothic', arial, sans-serif;}
+/*상단*/
+h1 {font-size: 2em; font-weight: 600; line-height: 1.4; color: white; text-align: center; -webkit-text-stroke: 0.6px #021619;}
+/*상단제목*/
+h2 {font-size: 6.1em; font-weight: 900; line-height: 0; color: #042830; -webkit-text-stroke: 0.7px #021619; text-align: center; letter-spacing:-2px;/*font-variant:small-caps;*/ }
+h2-1 {font-size: 8.8em; font-weight: 900; color: white; text-align: left; -webkit-text-stroke: 1.5px #021619; letter-spacing:-7px; }
+/*사이드*/
+h3 {font-size: 1.5em; font-weight: 700; text-align: center; line-height: 1.3;}
+h4 {font-size: 1.7em; font-weight: 700; text-align: right; }
+/*윈도우 상단 타이틀*/
+h5 {font-size: 1.4em; font-weight: 700; color: #042830; text-align: center; line-height: 2.6;}
+/*제품이름*/
+h6 {font-size: 1.4em; font-weight: 600; color: #042830; text-align: center; line-height: 1.7;}
+/*Q + A*/
+h7 {font-size: 1em; font-weight: 500; color: #021619; text-align: left; line-height: 1.7; -webkit-text-stroke: 0.2px #021619;}
+/*menu*/
+h8 {font-size: 2.5em; font-weight: 900; color: #021619; text-align: center; line-height: 1.7; -webkit-text-stroke: 1px #021619;}
+h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: white; -webkit-text-stroke: 1.5px #021619;}
+
+
+
+</style>
+</head>
+<body>
+<section alt="section11">
+
+    <div id="line1">
+      <img src="./img/deco2.png" id="arrow">
+    </div>
+    
+    <div id="line2">
+      <img src="./img/deco2.png" id="arrow" style="transform: rotateZ(180deg);">
+    </div>
+
+
+    <!--포스트잇-->
+<div id="real">
+  <div id="q1" onmouseover="overq1(this)" onmouseout="outq1(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q1img">
+    <h7><a href="register.html">NO.2_<br><br>Q : 아무도 없는 자취방에서 아플 때 먹을 약이 필요해요.<br><br>A : 용사 감기 완치약!</a></h7>
+  </div>
+
+  <div id="q2" onmouseover="overq2(this)" onmouseout="outq2(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q2img">
+    <h7><a href="register.html">NO.1_<br><br>Q : 평일의 수면 패턴이 엉망이 되어서 제 주말도 엉망이 되었어요.<br><br>A : 잠 저장소 베개!</a></h7>
+  </div>
+
+  <div id="q3" onmouseover="overq3(this)" onmouseout="outq3(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q3img">
+    <h7><a href="register.html">NO.3_<br><br>Q : 늘 무거운 노트북을 들고 다니느라 어깨가 늘 결려있어요.<br><br>A : 스티커 노트북!</a></h7>
+  </div>
+
+  <div id="q4" onmouseover="overq4(this)" onmouseout="outq4(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q4img">
+    <h7><a href="register.html">NO.7_<br><br>Q : 저는 외출을 하면 꼭 물건을 하나씩 잃어버려요.<br><br>A : 개코 가면!</a></h7>
+  </div>
+
+  <div id="q5" onmouseover="overq5(this)" onmouseout="outq5(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q5img">
+    <h7><a href="register.html">NO.8_<br><br>Q : 이 시국에 불매 제품을 하나하나 기억하기 힘들어요.<br><br>A : 원산지 돋보기!</a></h7>
+  </div>
+
+  <div id="q6" onmouseover="overq6(this)" onmouseout="outq6(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q6img">
+    <h7><a href="register.html">NO.5_<br><br>Q : 같은 팀원과 회의해도 서로 생각하는 건 늘 다른거더라구요.<br><br>A : 뇌 속 중개자 어플!</a></h7>
+  </div>
+
+  <div id="q11" onmouseover="overq11(this)" onmouseout="outq11(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q11img">
+    <h7><a href="register.html">NO.10_<br><br>Q : 의사선생님이 라식을 못한다고 평생 안경을 낄 수 밖에 없대요.<br><br>A : 몽골인 안약!</a></h7>
+  </div>
+
+  <div id="q7" onmouseover="overq7(this)" onmouseout="outq7(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q7img">
+    <h7><a href="register.html">NO.9_<br><br>Q : 현실에서 내가 보고 있는 색상을 모니터에 그대로 넣고 싶어요.<br><br>A : 현실 컬러 스포이드!</a></h7>
+  </div>
+
+  <div id="q8" onmouseover="overq8(this)" onmouseout="outq8(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q8img">
+    <h7><a href="register.html">NO.4_<br><br>Q : 학교 수업 시간 두 시간 전에 지각을 예감하신 적 있으세요?<br><br>A : 통학러 룰렛!</a></h7>
+  </div>
+
+  <div id="q9" onmouseover="overq9(this)" onmouseout="outq9(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q9img">
+    <h7><a href="register.html">NO.6_<br><br>Q : 친구들하고 밥 먹고 얘기하다 보면 저도 모르게 트름이 나와요.<br><br>A : 생리현상 소리 억제기!</a></h7>
+  </div>
+
+  <div id="q10" onmouseover="overq10(this)" onmouseout="outq10(this)">
+    <img src="./img/cursor.png" style="transform: rotateZ(90deg); position: absolute; top: -1.2%; right: -1.2%;" id="q10img">
+    <h7><a href="register.html">NO.11_<br><br>Q : 면접 때엔 늘 너무 긴장되어서 숨도 제대로 못 쉬어요.<br><br>A : 3분 발포비타민!</a></h7>
+  </div>
+</div>
+
+ 
+ <div id="productdraw" style="visibility: hidden;">
+    <div id="capsule">
+      <a href="productlist.html"><img src="./img/capsule2.png" ></a>
+    </div>
+    <div id="belt">
+      <a href="productlist.html"><img src="./img/belt2.png" ></a>
+    </div>
+    <div id="app">
+      <a href="productlist.html"><img src="./img/app2.png" ></a>
+    </div>
+    <div id="mask">
+      <a href="productlist.html"><img src="./img/mask2.png" ></a>
+    </div>
+    <div id="roulette">
+      <a href="productlist.html"><img src="./img/roulette2.png" ></a>
+    </div>
+    <div id="laptop">
+      <a href="productlist.html"><img src="./img/laptop2.png" ></a>
+    </div>
+    <div id="mirror">
+      <a href="productlist.html"><img src="./img/spuit2.png" ></a>
+    </div>
+    <div id="magnifier">
+      <a href="productlist.html"><img src="./img/magnifier2.png" ></a>
+    </div>
+    <div id="vitamin">
+      <a href="productlist.html"><img src="./img/vitamin2.png" ></a>
+    </div>
+    <div id="pillow">
+      <a href="productlist.html" class="nobackground"><img src="./img/pillow2.png" ></a>
+    </div>
+  </div>
+
+
+  <div id="toptxt">
+    <h1 id="toptxtall"><span>We Make Your real Inconvenience<br>
+    to UNreallistic Product.</span></h1>
+  </div>
+  <div id="toptxt1">
+    <h1 id="toptxtleft"><span>real Inconvenience</span></h1>
+  </div>
+  <div id="toptxt2">
+    <h1 id="toptxtright"><span>UNreallistic Product.</span></h1>
+  </div>
+
+  <!--left-->
+
+
+  <!--right-->
+
+  <!--mainlogo 1,2-->
+  <div id="logo1" style="z-index: 970;">
+    <div id="logo1_1" style="padding-right: 1%;">
+     <h2 style="margin-top: 40%; font-size: 3.8em; line-height: 0.1; text-align: center; padding-left: 5%;" title="현실의 고민들">UN</h2> 
+    </div>
+
+    <div id="logo1_2" style="padding-left: 1%;">
+     <h2 style="margin-top: 23%; color: white; line-height: 0.5; font-size: 3.8em; text-align: center; padding-right: 5%;" title="비현실의 물품들">real</h2> 
+    </div>
+  </div>
+  
+
+
+  <div id="preview1" onmouseover="visiBle(this)" onmouseout="hiDden(this)" title="CAPSULE">
+    <img src="./img/no1.png" id="preimg">
+  </div>
+
+  <div id="preview2" onmouseover="visiBle(this)" onmouseout="hiDden(this)" title="MASK">
+    <img src="./img/no5.png" id="preimg" style="margin-top: 5%; margin-bottom: 5%;">
+  </div>
+
+  <div id="preview3" style="transform: rotateZ(90deg);" onmouseover="visiBle(this)" onmouseout="hiDden(this)" title="SUPPRESSOR">
+    <img src="./img/no3.png" id="preimg" >
+  </div>
+
+  <div>
+    <a href="algorithm.html"><img src="./img/topbtn.png" id="topbtn" title="어디로 가야할지 모르겠다면?" style="transform: rotateZ(90deg);"></a>
+    
+
+    <a href="instruction.html"><img src="./img/topbtn2.png" id="topbtn1" title="사이트 설명이 필요하다면?" style="transform: rotateZ(-90deg);"></a>
+
+    <img src="./img/menuline_2.png" id="menuline" title="menu">
+    <img src="./img/menuline2.png" id="menuline2">
+    <div id="menu">
+      <a href="index.html"><img src="./img/menulogo.png" id="hover08" style="width: 37%; padding-right: 10%; padding-bottom: 5%;" title="main page"></a><br>
+      <a href="instruction.html"><h8>INSTRUCTIONS</h8></a><br>
+      <a href="algorithm.html"><h8>ALGORITHM</h8></a><br>
+      <a href="register.html"><h8>REGISTER</h8></a><br>
+      <a href="productlist.html"><h8>PRODUCT</h8></a>
+    </div>
+  </div>
+    
+  </div>
+    
+  
+</section>
+  
+
+
+<script>
+
+/*R*/
+function overq1(x) {
+  q1.style.borderRadius = "100%";
+  q1.style.zIndex = "999";
+  q1.style.transition = "all 0.1s";
+  q1img.style.opacity = "0";
+}
+function outq1(x) {
+  q1.style.borderRadius = "0%";
+  q1.style.zIndex = "1";
+  q1.style.transition = "all 0.1s";
+  q1img.style.opacity = "1";
+}
+
+function overq2(x) {
+  q2.style.borderRadius = "100%";
+  q2.style.zIndex = "999";
+  q2.style.transition = "all 0.1s";
+  q2img.style.opacity = "0";
+}
+function outq2(x) {
+  q2.style.borderRadius = "0%";
+  q2.style.zIndex = "1";
+  q2.style.transition = "all 0.1s";
+  q2img.style.opacity = "1";
+}
+
+function overq3(x) {
+  q3.style.borderRadius = "100%";
+  q3.style.zIndex = "999";
+  q3.style.transition = "all 0.1s";
+  q3img.style.opacity = "0";
+}
+function outq3(x) {
+  q3.style.borderRadius = "0%";
+  q3.style.zIndex = "1";
+  q3.style.transition = "all 0.1s";
+  q3img.style.opacity = "1";
+}
+
+function overq4(x) {
+  q4.style.borderRadius = "100%";
+  q4.style.zIndex = "999";
+  q4.style.transition = "all 0.1s";
+  q4img.style.opacity = "0";
+}
+function outq4(x) {
+  q4.style.borderRadius = "0%";
+  q4.style.zIndex = "1";
+  q4.style.transition = "all 0.1s";
+  q4img.style.opacity = "1";
+}
+
+function overq5(x) {
+  q5.style.borderRadius = "100%";
+  q5.style.zIndex = "999";
+  q5.style.transition = "all 0.1s";
+  q5img.style.opacity = "0";
+}
+function outq5(x) {
+  q5.style.borderRadius = "0%";
+  q5.style.zIndex = "1";
+  q5.style.transition = "all 0.1s";
+  q5img.style.opacity = "1";
+}
+
+function overq6(x) {
+  q6.style.borderRadius = "100%";
+  q6.style.zIndex = "999";
+  q6.style.transition = "all 0.1s";
+  q6img.style.opacity = "0";
+}
+function outq6(x) {
+  q6.style.borderRadius = "0%";
+  q6.style.zIndex = "1";
+  q6.style.transition = "all 0.1s";
+  q6img.style.opacity = "1";
+}
+
+function overq7(x) {
+  q7.style.borderRadius = "100%";
+  q7.style.zIndex = "999";
+  q7.style.transition = "all 0.1s";
+  q7img.style.opacity = "0";
+}
+function outq7(x) {
+  q7.style.borderRadius = "0%";
+  q7.style.zIndex = "1";
+  q7.style.transition = "all 0.1s";
+  q7img.style.opacity = "1";
+}
+
+function overq8(x) {
+  q8.style.borderRadius = "100%";
+  q8.style.zIndex = "999";
+  q8.style.transition = "all 0.1s";
+  q8img.style.opacity = "0";
+}
+function outq8(x) {
+  q8.style.borderRadius = "0%";
+  q8.style.zIndex = "1";
+  q8.style.transition = "all 0.1s";
+  q8img.style.opacity = "1";
+}
+
+function overq9(x) {
+  q9.style.borderRadius = "100%";
+  q9.style.zIndex = "999";
+  q9.style.transition = "all 0.1s";
+  q9img.style.opacity = "0";
+}
+function outq9(x) {
+  q9.style.borderRadius = "0%";
+  q9.style.zIndex = "1";
+  q9.style.transition = "all 0.1s";
+  q9img.style.opacity = "1";
+}
+
+function overq10(x) {
+  q10.style.borderRadius = "100%";
+  q10.style.zIndex = "999";
+  q10.style.transition = "all 0.1s";
+  q10img.style.opacity = "0";
+}
+function outq10(x) {
+  q10.style.borderRadius = "0%";
+  q10.style.zIndex = "1";
+  q10.style.transition = "all 0.1s";
+  q10img.style.opacity = "1";
+}
+
+function overq11(x) {
+  q11.style.borderRadius = "100%";
+  q11.style.zIndex = "999";
+  q11.style.transition = "all 0.1s";
+  q11img.style.opacity = "0";
+}
+function outq11(x) {
+  q11.style.borderRadius = "0%";
+  q11.style.zIndex = "1";
+  q11.style.transition = "all 0.1s";
+  q11img.style.opacity = "1";
+}
+
+</script>
+
+<script type="text/javascript">
+  
+ var toggle = "off";
+        //un
+       logo1_2.onclick = function(){
+        if(toggle == "off"){
+            toptxt1.style.visibility = "visibile";
+            toptxt.style.visibility = "hidden";
+            real.style.opacity = "1";
+            real.style.visibility = "visible";
+            real.style.transition = "all 0.9s";
+            menu.style.visibility = "hidden";
+            menu.style.height = "0px";
+            menu.style.transition = "all 0.2s";
+            menuline.style.opacity = "1";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.3s";
+
+            toptxt2.style.opacity = "0";
+            toptxt.style.visibility = "visible";
+            productdraw.style.visibility = "hidden";
+            productdraw.style.opacity = "0";
+            productdraw.style.transition = "all 0.3s";
+
+            } 
+      }
+
+
+var toggle = "off";
+        //real
+       logo1_1.onclick = function(){
+        if(toggle == "off"){
+            toptxt2.style.opacity = "0";
+            toptxt.style.visibility = "hidden";
+            productdraw.style.visibility = "visible";
+            productdraw.style.opacity = "1";
+            productdraw.style.transition = "all 0.3s";
+            
+            toptxt1.style.visibility = "hidden";
+            toptxt.style.visibility = "visible";
+            topbtn1.style.visibility = "visible";
+            topbtn1.style.transition = "all 0.1s";
+            real.style.opacity = "0";
+            real.style.visibility = "hidden";
+            real.style.transition = "all 0.3s";
+            } 
+      }
+
+
+//menu click
+      var toggle = "off";
+        
+       menuline.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            menu.style.opacity = "1";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "350px";
+            menu.style.visibility = "visible";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "0";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "visible";
+            menuline2.style.transition = "all 0.5s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            menu.style.opacity = "0";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "0px";
+            menu.style.visibility = "hidden";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "1";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.5s";
+            }
+      }
+
+
+/*var toggle = "off";
+      //left to main
+       topbtnn.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            toptxtall.style.opacity = "1";
+            toptxtleft.style.opacity = "0";
+            toptxtall.style.visibility = "visibile";
+            toptxtleft.style.visibility = "hidden";
+            topbtnn.style.visiblity = "hidden";
+            topbtn.style.visiblity = "visible";
+            real.style.opacity = "0";
+            real.style.visibility = "hidden";
+            real.style.transition = "all 0.9s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            toptxtleft.style.visibility = "hidden";
+            }
+      }*/
+</script>
+
+
+
+  <script type="text/javascript">
+  (function(){
+    var d = false;
+    var target,dx,dy;
+    var t = document.getElementsByClassName("drag");
+    for(var i=0; i<t.length; i++){
+      t[i].style.display = "block";
+      t[i].style.position = "absolute";
+      t[i].style.cursor = "pointer";
+      t[i].ondragstart = function(e){e.preventDefault();};
+      t[i].onmousedown = function(e){ d = true; dx = e.offsetX; dy = e.offsetY; target = e.target;}
+      t[i].onmouseup = function(){ d = false;}
+      window.onmousemove = function(e){ 
+        if(d){ target.style.left = (e.clientX - dx) + "px";
+          target.style.top = (e.clientY - dy) + "px";}
+      }
+    }
+  })();
+
+</script>
+</script>
+
+</body>
+</html>

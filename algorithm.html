@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script>try{Typekit.load({ async: true });}catch(e){}</script>
+ <script src="https://www.w3schools.com/lib/w3.js"></script>
+<script https://www.w3schools.com/howtotryit.asp?filename=tryhow_css_dropdown_navbar_click></script>
+<link rel="shortcut icon" href="./img/icon.png" type="image/png">
+
+<style>
+html{scroll-behavior: smooth; cursor: url(./img/cursor.png) 12 12,  auto; overflow: hidden;} 
+*,*::before,*::after {box-sizing: border-box;}
+img:hover {cursor: url('./img/cursor2.png') 12 12, default !important;}
+span:hover {color: white;cursor: url('./img/cursor2.png') 12 12, default !important;}
+
+body { background:url('./img/대지 1 사본 .jpg'); 
+  background-size: 100%; background-opacity:0.5; width: 1920px; height: 1080px;}
+a{cursor: url(./img/cursor2.png) 12 12, auto;}
+a:link {text-decoration: none;}
+a:hover{}
+
+span:hover { color:#021619; text-decoration: underline; }
+
+::selection {color: white; background: #021619;}
+
+/*상단텍스트박스, main, left, right 순*/
+#toptxt {width: 35%; height: 10%; margin:0 auto; margin-top: -2%;  z-index: 957; }
+
+#topline {width: 100%; height: 8%; position: fixed; margin-top: 3%; margin-left: -0.4%; border-bottom: 1.5px solid #021619; z-index: 502; background: white; }
+
+
+#menuline {width: 3.5%; position: fixed; left: 1.5%; bottom: 3%; z-index: 999;}
+#menuline:hover { opacity: .85; transition: all 0.2s; }
+
+#menuline2 {width: 3.5%; position: fixed; left: 1.5%; bottom: 3%; visibility: hidden; z-index: 998;}
+#menuline2:hover { opacity: .85; transition: all 0.2s; }
+
+#menu {width: 25%; height: 0px; position: fixed; left: 1.5%; bottom: 12%; overflow: hidden; z-index: 800; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 999; background: white; box-shadow: 2px 2px 12px #9f9f9f;}
+#hover08:hover {opacity: 0.8;}
+
+#flag {width: 10%; position: absolute; left: 0%; top: 17%; overflow: hidden; }
+
+/*상단 움직이는 화살표*/
+#line1 {width: 30%; height: 4%; position: fixed; top: 3.2%; left:3.5%; z-index: 565; overflow: hidden; animation: slide 1s infinite; }
+@keyframes slide {
+  0%  {
+    left: 2.5%; 
+  }
+  50% {
+    left: 3.5%;
+  }
+  100% {
+    left: 2.5%;
+  }
+}
+
+#line2 {width: 30%; height: 4%; position: fixed; top: 3.2%; right:3.5%; z-index: 555; overflow: hidden; animation: slide2 1s infinite;}
+@keyframes slide2 {
+  0%  {
+    right: 2.5%; 
+  }
+  50% {
+    right: 3.5%;
+  }
+  100% {
+    right: 2.5%;
+  }
+}
+#arrow {width: 100%; }
+
+
+#sidetxt1 {width: 20%; height: 10%; position: absolute; top: 46%; left: -5.8%; transform: rotateZ(-90deg); }
+#sidetxt2 {width: 3%; height: 30%; position: absolute; top: 38%; right: 2.4%; }
+
+
+/*탑버튼 right 1,2*/
+#topbtn {width: 3.5%; position: fixed; right: 1.5%; bottom: 3%; z-index: 999;}
+#topbtn:hover {opacity: .85; transition: all 0.2s;}
+
+
+section {height: 100%; width: 100%; display:flex; background: white; flex-direction:  column;/*justify-content: center;*/}
+#section1 {color: #fff;}
+#section2 {color: #fff;}
+#section3 {color: #fff;}
+
+
+#txtbox1 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; }
+#txtbox11 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; opacity: 0; visibility: hidden; }
+#txtbox111 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; opacity: 0; visibility: hidden; }
+#txtbox1111 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; opacity: 0; visibility: hidden; }
+#txtbox11111 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; opacity: 0; visibility: hidden; }
+#txtbox111111 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; opacity: 0; visibility: hidden; }
+#txtbox1111111 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; opacity: 0; visibility: hidden; }
+
+#allbox1 {width: 100%; height: 90%; float: left; background: grey;}
+#allbox2 {width: 100%; height: 90%; float: left; background: grey;}
+
+
+#line {width: 0.1%; height: 61%; position: fixed; border-right: 1.8px solid #021619;  margin-left: 49.6%; margin-top: 7.3%;}
+
+#txtbox2 {width: 80%; margin: 0 auto;}
+#txtbox22 {width: 10%; position: absolute; top: 37%; left: 9%;  opacity: 0; visibility: hidden;}
+#txtbox222 {width: 10%; position: absolute; top: 37%; left: 9%; opacity: 0; visibility: hidden;}
+
+#txtboxy {width: 4%; height: 5%; position: absolute; left: 41%; bottom: 24%;}
+#txtboxy:hover {background: white; border: 1.5px solid #021619; color: white; transition: all 0.3s; border-radius: 50%; -webkit-text-stroke: 1px white;}
+#txtboxn {width: 4%; height: 5%; position: absolute; right: 41%; bottom: 24%; }
+#txtboxn:hover {background: white; border: 1.5px solid #021619; color: white; transition: all 0.3s; border-radius: 50%; -webkit-text-stroke: 1px white;}
+
+
+#sellect {width: 70px; height: 70px; position: fixed; margin-top: 41.6%; margin-left: 47.8%; border: 1.8px solid #021619; background: white; border-radius: 50%; z-index: 986;}
+#sellect:hover {background: #201619; }
+
+
+#all1 {width: 100%; height: 89.8%; position: relative; margin-top: -3%; margin-left: -0.4%; z-index: 800;}
+#all2 {width: 100%; height: 89.8%; position: relative; margin-top: -3%; margin-left: -0.4%; z-index: 800;}
+#all3 {width: 100%; height: 89.8%; position: relative; margin-top: -3%; margin-left: -0.4%;}
+#all4 {width: 100%; height: 89.8%; position: relative; margin-top: -3%; margin-left: -0.4%;}
+#all5 {width: 100%; height: 89.8%; position: relative; margin-top: -3%; margin-left: -0.4%;}
+#all6 {width: 100%; height: 89.8%; position: relative; margin-top: -3%; margin-left: -0.4%;}
+#all7 {width: 100%; height: 89.8%; position: relative; margin-top: -3%; margin-left: -0.4%; z-index: 800;}
+#all8 {width: 100%; height: 89.8%; position: relative; margin-top: -3%; margin-left: -0.4%; z-index: 800;}
+
+
+#qbox {position: fixed; width: 18.5%; height: 13%; margin-top: 20%; left: 40.7%; border: 1.5px solid #021619; background: white;}
+#q1 {position: relative; width: 18.5%; height: 13%; top: 35.6%; left: 40.7%;}
+
+
+#a1 {position: absolute; width: 18.5%; height: 10%; margin-left: 40.7%; margin-top: 33%; }
+#ayes {width: 70px; height: 70px; position: absolute; left: 2%; border-radius: 50%;}
+#ayes:hover {width: 67px; height: 67px; background: white; border: 1.5px solid #021619; transition: all 0.3s; -webkit-text-stroke: 1px white; box-shadow: 3px 3px 7px #999;}
+#ano{width: 70px; height: 70px; position: absolute; right: 2%; border-radius: 50%;}
+#ano:hover {width: 67px; height: 67px; background: white; border: 1.5px solid #021619; transition: all 0.3s; -webkit-text-stroke: 1px white; box-shadow: 3px 3px 7px #999;}
+
+#refresh {width: 13%; height: 5%; position: fixed; bottom: 11%; right: -0.5%; background: white; border: 1.5px solid #021619; cursor: url(./img/cursor2.png) 12 12, auto; z-index: 999;}
+#refresh:hover { opacity: 0.6;}
+
+/*font*/
+h1, h2, h3, h4, h5, h6, h7, h8 {font-family: 'Apple SD Gothic Neo','Malgun Gothic', arial, sans-serif;}
+/*상단*/
+h1 {font-size: 5em; font-weight: 900; line-height: 0; color: #021619; text-align: center; -webkit-text-stroke: 0.6px #021619;}
+/*상단제목*/
+h2 {font-size: 8em; font-weight: 900; line-height: 0; color: #042830; text-align: center; letter-spacing:-2px;/*font-variant:small-caps;*/ }
+h2-1 {font-size: 8.8em; font-weight: 900; color: white; text-align: left; -webkit-text-stroke: 1.5px #021619; letter-spacing:-7px; }
+/*질문*/
+h3 {font-size: 1.5em; font-weight: 500; text-align: center; line-height: 1.7; color:#021619; }
+/*답변*/
+h4 {font-size: 1.8em; font-weight: 900; text-align: center; color:#021619; -webkit-text-stroke: 0.2px #021619; line-height: 0;}
+h4:hover {cursor: url('./img/cursor2.png') 12 12, default !important;}
+/*?*/
+h5 {font-size: 1.8em; font-weight: 900; text-align: center; color:white; -webkit-text-stroke: 0.2px white; line-height: 0;}
+/*재시작 원해요오~?*/
+h6 {font-size: 1.2em; font-weight: 500; color: #042830; text-align: center; line-height: 0;}
+
+/*Q + A*/
+h7 {font-size: 1em; font-weight: 500; color: #021619; text-align: left; line-height: 1.7; -webkit-text-stroke: 0.2px #021619;}
+/*menu 건들면 안됨*/
+h8 {font-size: 2.5em; font-weight: 900; color: #021619; text-align: center; line-height: 1.7; -webkit-text-stroke: 1px #021619;}
+h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: white; -webkit-text-stroke: 1.5px #021619;}
+
+
+
+</style>
+</head>
+<body>
+
+    <div id="line1">
+      <img src="./img/deco2.png" id="arrow">
+    </div>
+    
+    <div id="line2">
+      <img src="./img/deco2.png" id="arrow" style="transform: rotateZ(180deg);">
+    </div>
+
+  <div id="topline">
+    <div id="toptxt" style="margin-top: -0.8%; z-index: 999;">
+    <a href="algorithm.html" title="ALGORITHM"><h1>ALGORITHM</h1></a>
+    </div>
+  </div>
+
+  <div id="refresh"><h6 style="margin-top: 11%;"><a href="algorithm.html" title="아래의 버튼을 눌러주세요.">
+  재검사를 하고 싶으신가요?</h6></a></div>
+
+  <div>
+    <a href="algorithm.html"><img src="./img/topbtn.png" id="topbtn" title="do it again"></a>
+
+    <img src="./img/menuline_2.png" id="menuline" title="menu">
+    <img src="./img/menuline2.png" id="menuline2">
+    <div id="menu">
+      <a href="index.html"><img src="./img/menulogo.png" id="hover08" style="width: 37%; padding-right: 10%; padding-bottom: 5%;" title="main page"></a><br>
+      <a href="instruction.html"><h8>INSTRUCTIONS</h8></a><br>
+      <a href="algorithm.html"><h8>ALGORITHM</h8></a><br>
+      <a href="register.html"><h8>REGISTER</h8></a><br>
+      <a href="productlist.html"><h8>PRODUCT</h8></a>
+    </div>
+  </div>
+
+    
+<div id="line"></div>
+<div id="qbox"></div>
+<div id="sellect"><h5 style="margin-top: 55%;">?</h5></div>
+
+  <!--1-->
+    <div id="all1" style="height: 967.68px;">
+      <div id="q1" style="top: 42.9%;">
+        <div id="qtxt"> <h3>현재 당신에게<br>불편함이 있나요?</h3></div>
+      </div>
+  
+      <div id="a1" style="top: 18.9%;">
+        <a href="#all3">
+          <div id="ayes"><h4>YES</h4></div>
+        </a>
+        <a href="#all2">
+        <div id="ano"><h4>NO</h4></div>
+        </a>
+      </div>
+    </div>
+
+  <!--2-->
+
+    <div id="all2" style="margin-top: 0%; height: 1080px;">
+      <div id="q1">
+        <div id="qtxt"> 
+          <h3>정말 인생을 살아가면서<br>불편함이 없었나요?</h3></div>
+      </div>
+  
+      <div id="a1">
+        <a href="#all8">
+          <div id="ayes"><h4>YES</h4></div>
+        </a>
+        <a href="#all3">
+        <div id="ano"><h4>NO</h4></div>
+        </a>
+      </div>
+    </div>
+
+  <!--3-->
+
+    <div id="all3" style="margin-top: 0%; height: 1080px;">
+      <div id="q1">
+        <div id="qtxt"> 
+          <h3>그 불편함을 누군가에게<br>털어놓은 적 있나요?</h3></div>
+      </div>
+  
+      <div id="a1">
+        <a href="#all4">
+          <div id="ayes"><h4>YES</h4></div>
+        </a>
+        <a href="#all4">
+        <div id="ano"><h4>NO</h4></div>
+        </a>
+      </div>
+    </div>
+
+  <!--4-->
+
+    <div id="all4" style="margin-top: 0%; height: 1080px;">
+      <div id="q1" >
+        <div id="qtxt"> 
+          <h3>그 불편이 해소되었나요?</h3></div>
+      </div>
+  
+      <div id="a1">
+        <a href="#all5">
+          <div id="ayes"><h4>YES</h4></div>
+        </a>
+        <a href="#all6">
+        <div id="ano"><h4>NO</h4></div>
+        </a>
+      </div>
+    </div>
+
+  <!--5-->
+
+    <div id="all5" style="margin-top: 0%; height: 1080px;">
+      <div id="q1">
+        <div id="qtxt"> 
+          <h3>완벽한 해소가 되었다고<br>할 수 있나요?</h3></div>
+      </div>
+
+      <div id="a1">
+        <a href="#all8">
+          <div id="ayes"><h4>YES</h4></div>
+        </a>
+        <a href="#all6">
+        <div id="ano"><h4>NO</h4></div>
+        </a>
+      </div>
+    </div>
+
+<!--6-->
+
+    <div id="all6" style="margin-top: 0%; height: 1080px;">
+      <div id="q1">
+        <div id="qtxt"> 
+          <h3>그것은 해소되지 않을<br>불편함인가요?</h3></div>
+      </div>
+  
+      <div id="a1">
+        <a href="#all7">
+          <div id="ayes"><h4>YES</h4></div>
+        </a>
+        <a href="#all8">
+        <div id="ano"><h4>NO</h4></div>
+        </a>
+      </div>
+    </div>
+
+<!--7-->
+
+    <div id="all7" style="margin-top: 0%; height: 1080px;">
+      <div id="q1" >
+        <div id="qtxt"> 
+          <h3><b>불편 접수페이지에<br>방문해보세요.</b></h3>
+        </div>
+        </div>
+  
+      <div id="a1">
+        <a href="register.html">
+          <div id="ayes"><h4>YES</h4></div>
+        </a>
+        <a href="#all8">
+        <div id="ano"><h4>NO</h4></div>
+        </a>
+      </div>
+      <div style="background: white; width: 20%; height: 20%; margin: 0 auto; margin-top: 9%;"></div>
+    </div>
+
+<!--8-->
+
+    <div id="all8" style="margin-top: 0%; height: 1080px;">
+
+      <div id="q1">
+        <div id="qtxt"> 
+          <h3><b>제작된 물품들을<br>보러가보세요.</b></h3></div>
+      </div>
+  
+      <div id="a1">
+        <a href="productlist.html">
+          <div id="ayes"><h4>YES</h4></div>
+        </a>
+        <a href="#all7">
+        <div id="ano"><h4>NO</h4></div>
+        </a>
+      </div>
+      <div style="background: white; width: 20%; height: 20%; margin: 0 auto; margin-top: 9%;"></div>
+    </div>
+    
+
+    
+
+
+<script type="text/javascript">
+  
+//menu click
+      var toggle = "off";
+        
+       menuline.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            menu.style.opacity = "1";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "350px";
+            menu.style.visibility = "visible";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "0";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "visible";
+            menuline2.style.transition = "all 0.5s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            menu.style.opacity = "0";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "0px";
+            menu.style.visibility = "hidden";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "1";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.5s";
+            }
+      }
+
+</script>
+<script type="text/javascript">
+//뭐어어어~? 재시작을 원한다구우웅~?~? ㅇㅋ 접수
+
+function restart1(x) {
+    refresh.style.background = "black";
+    refresh.style.transition = "all 0.3s";
+  }
+function restart2(x) {
+    refresh.style.background = "white";
+    refresh.style.transition = "all 0.3s";
+  }
+  }
+/*var toggle = "off";
+      //left to main
+       topbtnn.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            toptxtall.style.opacity = "1";
+            toptxtleft.style.opacity = "0";
+            toptxtall.style.visibility = "visibile";
+            toptxtleft.style.visibility = "hidden";
+            topbtnn.style.visiblity = "hidden";
+            topbtn.style.visiblity = "visible";
+            real.style.opacity = "0";
+            real.style.visibility = "hidden";
+            real.style.transition = "all 0.9s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            toptxtleft.style.visibility = "hidden";
+            }
+      }*/
+</script>
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

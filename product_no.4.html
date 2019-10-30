@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script>try{Typekit.load({ async: true });}catch(e){}</script>
+ <script src="https://www.w3schools.com/lib/w3.js"></script>
+<script https://www.w3schools.com/howtotryit.asp?filename=tryhow_css_dropdown_navbar_click></script>
+<link rel="shortcut icon" href="./img/icon.png" type="image/png">
+
+<style>
+html{scroll-behavior: smooth; cursor: url(./img/cursor.png) 12 12, auto; overflow: hidden;} 
+
+span:hover {color: white; cursor: url('./img/cursor2.png') 12 12, default !important;}
+
+body { background:url('./img/list111.jpg'); 
+  background-size: 100%; background-opacity:0.5; }
+a{cursor: url(./img/cursor2.png) 12 12, auto; color: #021619;}
+a:link {text-decoration: none;}
+
+span:hover { color:white; background: #021619; text-decoration: wavy; transition: all 0.3s;}
+
+::selection {color: white; background: #021619;}
+
+
+/*상단텍스트박스, main, left, right 순*/
+#toptxt {width: 35%; height: 10%; margin:0 auto; margin-top: 3%;  z-index: 999; }
+
+#topline {width: 100%; height: 10.2%; position: absolute; top: 0%; left: 0%; border-bottom: 1.5px solid #021619; z-index: 998;}
+
+#menuline {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; z-index: 985;}
+#menuline:hover { opacity: .85; transition: all 0.2s; }
+
+#menuline2 {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; visibility: hidden; z-index: 984;}
+#menuline2:hover { opacity: .85; transition: all 0.2s; }
+
+#menu {width: 25%; height: 0px; position: absolute; left: 36.5%; bottom: 12%; overflow: hidden; z-index: 800; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 980; background: white; box-shadow: 2px 2px 12px #9f9f9f;}
+#hover08:hover {opacity: 0.8;}
+
+#flag {width: 10%; position: absolute; left: 0%; top: 17%; overflow: hidden; }
+
+
+/*상단 움직이는 화살표*/
+#line1 {width: 30%; height: 4%; position: absolute; top: 3.2%; left:3.5%; z-index: 555; overflow: hidden; animation: slide 1s infinite; }
+@keyframes slide {
+  0%  {
+    left: 2.5%; 
+  }
+  50% {
+    left: 3.5%;
+  }
+  100% {
+    left: 2.5%;
+  }
+}
+
+#line2 {width: 30%; height: 4%; position: absolute; top: 3.2%; right:3.5%; z-index: 555; overflow: hidden; animation: slide2 1s infinite;}
+@keyframes slide2 {
+  0%  {
+    right: 2.5%; 
+  }
+  50% {
+    right: 3.5%;
+  }
+  100% {
+    right: 2.5%;
+  }
+}
+#arrow {width: 100%; }
+
+
+/*탑버튼 right 1,2*/
+#topbtn {width: 3.5%; position: absolute; right: 1.5%; bottom: 3%; z-index: 999;}
+#topbtn:hover {opacity: .85; transition: all 0.2s;}
+
+
+#gradient {width: 100%; height: 89.8%; position: absolute; bottom: 0%; left: 0%; overflow: hidden; }
+#gradient:hover {cursor: url('./img/cursor3.png') 12 12, default !important;}
+
+
+#preimg {width: 48%; position: absolute; left: 55%; top: 18%; -webkit-filter: drop-shadow(7px 12px 20px #fff);}
+#preimg:hover {-webkit-filter: drop-shadow(14px 18px 40px #fff); z-index: 999; cursor: url('./img/roulettecursor.png') 12 12, default !important;}
+
+
+#alltxt {width: 33%; height: 100%; overflow: hidden; position: relative; margin-left: 0%; margin-top: 0%; background: white; border: 2px solid #021619;}
+#alltxt:hover {cursor: url('./img/cursor.png') 12 12, default !important;}
+
+
+#txtbox1 {width: 100%; height: 4.5%; padding-left: 3%; border-bottom: 2px solid #021619; background: white;}
+#txtbox2 {width: 100%; height: 4.5%; padding-left: 3%; border-bottom: 2px solid #021619; background: white;}
+#txtbox3 {width: 100%; height: 4.5%; padding-left: 3%; border-bottom: 2px solid #021619; background: white;}
+#txtbox4 {width: 100%; height: 4.5%; padding-left: 3%; border-bottom: 2px solid #021619; background: white;}
+
+#txtmore1 {width: 100%; height: 0%; margin-bottom: 3%; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; opacity: 0; visibility: hidden; background: white; }
+#txtmore2 {width: 100%; height: 0%; margin-bottom: 3%;padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; opacity: 0; visibility: hidden; background: white; }
+#txtmore3 {width: 100%; height: 700px; margin-bottom: 3%; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; border-top: 0.1px solid #021619;  background: white;}
+#txtmore4 {width: 100%; height: 0%; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; border-top: 0.1px solid #021619; background: white;}
+
+#righttop {width: 10%; transform: rotateZ(90deg); position: relative; float: left;}
+
+/*font*/
+h1, h2, h3, h4, h5, h6, h7, h8 {font-family: 'Apple SD Gothic Neo','Malgun Gothic', arial, sans-serif;}
+/*상단*/
+h1 {font-size: 3.9em; font-weight: 900; line-height: 0; color: #021619; text-align: center; -webkit-text-stroke: 1px #021619;}
+/*상단제목*/
+h2 {font-size: 8em; font-weight: 900; line-height: 0; color: #042830; text-align: center; letter-spacing:-2px;/*font-variant:small-caps;*/ }
+h2-1 {font-size: 8.8em; font-weight: 900; color: white; text-align: left; -webkit-text-stroke: 1.5px #021619; letter-spacing:-7px; }
+/*서브 타이틀*/
+h3 {font-size: 2.3em; font-weight: 900; text-align: left; line-height: 0; color:#021619; -webkit-text-stroke: 0.6px #021619;}
+h3:hover {color: white; -webkit-text-stroke: 1.3px #021619; }
+
+/*안의 텍스트*/
+h4 {font-size: 1.4em; font-weight: 500; text-align: left; line-height: 1.7; color: #021619; }
+h5 {font-size: 1.4em; font-weight: 700; color: #042830; text-align: center; line-height: 2.6;}
+/*제품이름*/
+h6 {font-size: 1.4em; font-weight: 600; color: #042830; text-align: center; line-height: 1.7;}
+/*Q + A*/
+h7 {font-size: 1em; font-weight: 500; color: #021619; text-align: left; line-height: 1.7; -webkit-text-stroke: 0.2px #021619;}
+/*menu 건들면 안됨*/
+h8 {font-size: 2.5em; font-weight: 900; color: #021619; text-align: center; line-height: 1.7; -webkit-text-stroke: 1px #021619;}
+h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: white; -webkit-text-stroke: 1.5px #021619;}
+
+
+
+</style>
+</head>
+<body>
+
+
+    <div id="line1">
+      <img src="./img/deco2.png" id="arrow">
+    </div>
+    
+    <div id="line2">
+      <img src="./img/deco2.png" id="arrow" style="transform: rotateZ(180deg);">
+    </div>
+
+  <div id="toptxt" style="margin-top: 3.2%;">
+    <h1>통학러 룰렛</h1>
+  </div>
+
+  <div id="topline"></div>
+
+  <div>
+
+
+    <img src="./img/menuline22.png" id="menuline" title="menu">
+    <img src="./img/menuline222.png" id="menuline2">
+    <div id="menu">
+      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 20%; padding-right: 10%; padding-bottom: 5%;" title="main page"></a><br>
+      <a href="register.html"><h8>REGISTER</h8></a><br>
+      <a href="productlist.html"><h8>PRODUCT</h8></a>
+    </div>
+  </div>
+  </div>
+    
+
+    <div id="gradient">
+      
+      <img src="./img/grid_1.png" id="gradient" style="height: 100%; width: 100%; top: 0%; background: #021619;">
+      <img src="./img/roulette2.png" id="preimg" class="drag" style="width: 30%;">
+      <div id="alltxt">
+        <div id="txtbox1"><h3 style="margin-top: 7%;">1_ DESCRIPTION</h3></div>
+        <div id="txtmore1"><h4>#생활 #수면 #불면증<br>
+          <span>평일엔 잠들새 없이 바쁘고<br>주말엔 눈뜰새 없이 잔다고요?</span><br><br>이젠 잠을 저장해주어 십분만 자도<br>지난 밤의 <span>저장해놓은 잠</span>으로<br>피곤을 없앨 수 있어요!</h4></div>
+        <div id="txtbox2"><h3 style="margin-top: 7%;">2_ PURPOSE</h3></div>
+        <div id="txtmore2"><h4><span>평일엔 잠들새 없이 바쁘고<br>주말엔 눈뜰새 없이 잔다고요?</span><br><br>이젠 잠을 저장해주어 십분만 자도<br>지난 밤의 <span>저장해놓은 잠</span>으로<br>피곤을 없앨 수 있어요!</h4></div>
+        <div id="txtbox3"><h3 style="margin-top: 7%;">3_ 5W1H</h3></div>
+        <div id="txtmore3"><h4 style="line-height: 1.5;">
+          <b>WHO_</b><br>미대에 다니는 20대 익명의 <span>도토리 키재기님</span><br><br><b>WHERE_</b><br>본인의 방 침대에서<br><br><b>WHEN_</b><br>과제에 밀려 <span>잘 수 없는 상황</span>이나<br>어젯밤에 많이 잔 시간이 아까워질때<br><br><b>WHAT_</b><br>내가 <span>피곤을 저장</span>해둘 수 있는 저장함이<br><br><b>WHY_</b><br>수면을 푹 취했을 때와 그러지 않았을 때의 차이가 <span>스스로 애잔할 때</span><br><br><b>HOW_</b><br>피곤함을 알아서 저장해줘서 나중에 <span>저장된 피곤함과<br>수면을 옮길 수 있게</span> </h4></div>
+      </div>
+    </div>
+
+  
+
+
+<script type="text/javascript">
+
+//menu click
+      var toggle = "off";
+        
+       menuline.onclick = function(){
+        if(toggle == "off"){
+            toggle = "on";
+            menu.style.opacity = "1";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "240px";
+            menu.style.visibility = "visible";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "0";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "visible";
+            menuline2.style.transition = "all 0.5s";
+            } 
+            else if (toggle = "on"){
+            toggle = "off";
+            menu.style.opacity = "0";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "0px";
+            menu.style.visibility = "hidden";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "1";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.5s";
+            }
+      }
+</script>
+<script type="text/javascript">
+function unlogo(x) {
+    menu.style.opacity = "1";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "240px";
+            menu.style.visibility = "visible";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "0";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "visible";
+            menuline2.style.transition = "all 0.5s";
+  }
+function reallogo(x) {
+    menu.style.opacity = "0";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "0px";
+            menu.style.visibility = "hidden";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "1";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.5s";
+  }
+
+//작품 설명 칸
+
+var toggle = "off";
+        
+       txtbox1.onclick = function(){
+        if(toggle == "off"){
+            txtmore1.style.opacity = "1";
+            txtmore1.style.height = "700px";
+            txtmore1.style.visibility = "visible";
+            txtmore1.style.transition = "all 0.3s";
+
+            txtmore2.style.opacity = "0";
+            txtmore2.style.height = "0px";
+            txtmore2.style.visibility = "hidden";
+            txtmore2.style.transition = "all 0.3s";
+
+            txtmore3.style.opacity = "0";
+            txtmore3.style.height = "0px";
+            txtmore3.style.visibility = "hidden";
+            txtmore3.style.transition = "all 0.3s";
+
+            } 
+      }
+
+var toggle = "off";
+        
+       txtbox2.onclick = function(){
+        if(toggle == "off"){
+            txtmore2.style.opacity = "1";
+            txtmore2.style.height = "700px";
+            txtmore2.style.visibility = "visible";
+            txtmore2.style.transition = "all 0.3s";
+
+            txtmore1.style.opacity = "0";
+            txtmore1.style.height = "0px";
+            txtmore1.style.visibility = "hidden";
+            txtmore1.style.transition = "all 0.3s";
+
+            txtmore3.style.opacity = "0";
+            txtmore3.style.height = "0px";
+            txtmore3.style.visibility = "hidden";
+            txtmore3.style.transition = "all 0.3s";
+            
+
+            } 
+      }
+
+var toggle = "off";
+        
+       txtbox3.onclick = function(){
+        if(toggle == "off"){
+            txtmore3.style.opacity = "1";
+            txtmore3.style.height = "700px";
+            txtmore3.style.visibility = "visible";
+            txtmore3.style.transition = "all 0.3s";
+
+            txtmore1.style.opacity = "0";
+            txtmore1.style.height = "0px";
+            txtmore1.style.visibility = "hidden";
+            txtmore1.style.transition = "all 0.3s";
+
+            txtmore2.style.opacity = "0";
+            txtmore2.style.height = "0px";
+            txtmore2.style.visibility = "hidden";
+            txtmore2.style.transition = "all 0.3s";
+            
+            } 
+      }
+
+          
+</script>
+<script type="text/javascript">
+  (function(){
+    var d = false;
+    var target,dx,dy;
+    var t = document.getElementsByClassName("drag");
+    for(var i=0; i<t.length; i++){
+      t[i].style.display = "block";
+      t[i].style.position = "absolute";
+      t[i].style.cursor = "pointer";
+      t[i].ondragstart = function(e){e.preventDefault();};
+      t[i].onmousedown = function(e){ d = true; dx = e.offsetX; dy = e.offsetY; target = e.target;}
+      t[i].onmouseup = function(){ d = false;}
+      window.onmousemove = function(e){ 
+        if(d){ target.style.left = (e.clientX - dx) + "px";
+          target.style.top = (e.clientY - dy) + "px";}
+      }
+    }
+  })();
+
+</script>
+
+
+</body>
+</html>

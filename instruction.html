@@ -30,16 +30,20 @@ span:hover { color:white; -webkit-text-stroke: 1px #021619; text-decoration: wav
 #topline {width: 100%; height: 0.1%; position: absolute; top: 10.4%; left: 0%; border-bottom: 1.5px solid #021619;}
 
 
-#menuline {width: 3.5%; position: absolute; left: 1.5%; bottom: 3%; z-index: 985;}
+#menuline {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; z-index: 999;}
 #menuline:hover { opacity: .85; transition: all 0.2s; }
 
-#menuline2 {width: 3.5%; position: absolute; left: 1.5%; bottom: 3%; visibility: hidden; z-index: 984;}
+#menuline2 {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; visibility: hidden; z-index: 998;}
 #menuline2:hover { opacity: .85; transition: all 0.2s; }
-
-#menu {width: 25%; height: 0px; position: absolute; left: 1.5%; bottom: 12%; overflow: hidden; z-index: 800; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 980; background: white; box-shadow: 2px 2px 12px #9f9f9f;}
+#menu {width: 12%; height: 0px; position: absolute; left: 43%; bottom: 12%; overflow: hidden; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 999; background: white; box-shadow: 2px 2px 12px #9f9f9f; text-align: center;}
 #hover08:hover {opacity: 0.8;}
 
+#menuout {width: 100%; height: 100%; position: absolute; top: 0%; left: 0%; z-index: 998; display: none;}
+
+
 #flag {width: 10%; position: absolute; left: 0%; top: 17%; overflow: hidden; }
+#flag2 {width: 10%; position: absolute; left: 0%; top: 26%; overflow: hidden; opacity: 0.5;}
+#flag3 {width: 10%; position: absolute; left: 0%; top: 35%; overflow: hidden; opacity: 0.5;}
 
 /*상단 움직이는 화살표*/
 #line1 {width: 30%; height: 4%; position: absolute; top: 3.2%; left:3.5%; z-index: 555; overflow: hidden; animation: slide 1s infinite; }
@@ -87,13 +91,15 @@ section {height: 100%; width: 100%; display:flex;  flex-direction:  column;/*jus
 
 
 #txtbox1 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; }
-#txtbox11 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; opacity: 0; visibility: hidden; }
-#txtbox111 {width: 60%; position: absolute; top: 13.5%; left: 1.7%; opacity: 0; visibility: hidden; }
+#txtbox11 {width: 60%; position: absolute; top: 22.7%; left: 1.7%; opacity: 0.5; }
+#txtbox111 {width: 60%; position: absolute; top: 31.7%; left: 1.7%;   opacity: 0.5; }
 
-#txtbox2 {width: 10%; position: absolute; top: 37%; left: 9%; }
-#txtbox22 {width: 10%; position: absolute; top: 37%; left: 9%;  opacity: 0; visibility: hidden;}
-#txtbox222 {width: 10%; position: absolute; top: 37%; left: 9%; opacity: 0; visibility: hidden;}
+#txtbox2 {width: 10%; position: absolute; top: 39%; left: 21%;  }
+#txtbox22 {width: 10%; position: absolute; top: 39%; left: 21%;  opacity: 0; }
+#txtbox222 {width: 10%; position: absolute; top: 39%; left: 21%; opacity: 0; }
 
+
+#maintxt {width: 12%; height: 7%; color: #021619; position: absolute; bottom: 0.5%; right: 5.5%;}
 
 /*font*/
 h1, h2, h3, h4, h5, h6, h7, h8 {font-family: 'Apple SD Gothic Neo','Malgun Gothic', arial, sans-serif;}
@@ -103,7 +109,7 @@ h1 {font-size: 5em; font-weight: 900; line-height: 0; color: #021619; text-align
 h2 {font-size: 8em; font-weight: 900; line-height: 0; color: #042830; text-align: center; letter-spacing:-2px;/*font-variant:small-caps;*/ }
 h2-1 {font-size: 8.8em; font-weight: 900; color: white; text-align: left; -webkit-text-stroke: 1.5px #021619; letter-spacing:-7px; }
 /*설명문 + 번호*/
-h3 {font-size: 2.2em; font-weight: 900; text-align: left; line-height: 1.7; color:#021619; -webkit-text-stroke: 0.6px #021619;}
+h3 {font-size: 2.2em; font-weight: 900; text-align: center; line-height: 1.7; color:#021619; -webkit-text-stroke: 0.6px #021619;}
 h4 {font-size: 2.6em; font-weight: 900; text-align: left; color: white; -webkit-text-stroke: 0.5px white;}
 /*윈도우 상단 타이틀*/
 h5 {font-size: 1.4em; font-weight: 700; color: #042830; text-align: center; line-height: 2.6;}
@@ -114,6 +120,9 @@ h7 {font-size: 1em; font-weight: 500; color: #021619; text-align: left; line-hei
 /*menu 건들면 안됨*/
 h8 {font-size: 2.5em; font-weight: 900; color: #021619; text-align: center; line-height: 1.7; -webkit-text-stroke: 1px #021619;}
 h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: white; -webkit-text-stroke: 1.5px #021619;}
+
+/*인스트럭션이랑 알고리즘*/
+h10 {font-size: 1.6em; font-weight: 700; color: #021619; text-align: right; line-height: 1;}
 
 
 
@@ -136,16 +145,16 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
   </div>
 
   <div id="topline"></div>
+<div id="maintxt"><h10><a href="index.html">메인으로 돌아가기</a></h10></div>
 
   <div>
 
-    <a href="index.html"><img src="./img/topbtn.png" id="topbtn" title="어디로 가야할지 모르겠다면?" style="transform: rotateZ(90deg);"></a>
-    
+    <a href="index.html"><img src="./img/topbtn.png" id="topbtn" title="메인으로 돌아가기" style="transform: rotateZ(90deg);"></a>
 
     <img src="./img/menuline_2.png" id="menuline" title="menu">
     <img src="./img/menuline2.png" id="menuline2">
     <div id="menu">
-      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 37%; padding-right: 10%; padding-bottom: 5%;" title="main page"></a><br>
+      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 40%; margin: 0 auto; padding-bottom: 5%; margin-bottom: 5%;" title="main page"></a><br>
       <a href="register.html"><h8>REGISTER</h8></a><br>
       <a href="productlist.html"><h8>PRODUCT</h8></a>
     </div>
@@ -155,30 +164,36 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
     
   <div>
     <img src="./img/flag1.png" id="flag">
-    <div id="txtbox1"><h4>(1)</h4></div>
-    <div id="txtbox11"><h4>(2)</h4></div>
-    <div id="txtbox111"><h4>(3)</h4></div>    
+    <div id="txtbox1"><h4>(1)</h4></div>   
+  </div>
+  <div>
+    <img src="./img/flag1.png" id="flag2">
+    <div id="txtbox11"><h4>(2)</h4></div>   
+  </div>
+  <div>
+    <img src="./img/flag1.png" id="flag3">
+    <div id="txtbox111"><h4>(3)</h4></div>   
   </div>
 
    
       <div id="txtbox2" style="width: 57%;">
-        <h3> <span title="next">현실 / 現實 / real :<br>
+        <h3> <span>현실 / 現實 / real :<br>
           명사. 현재 실제로 존재하는 사실이나 상태.<br><br>
           비현실 / 非現實 / unreal :<br>
           명사. 현재 실제로 존재하는 일이나 상태가 아닌 것.</span></h3>
       </div>
 
       <div id="txtbox22" style="width: 57%;">
-        <h3> <span  title="next">realUNreal : <br>
+        <h3> <span>realUNreal : <br>
           현실에서는 해결불가한 고민을 <br>비현실적인 물품으로 해소시키는 고민해소 웹사이트.</span></h3>
       </div>
 
       <div id="txtbox222" style="width: 57%;">
         <h3> 
-          <span><a href="index.html">저희 웹사이트에서는 당신 일상의 고민을 들어주며<br>비현실적인 해소방법을 제공하는 사이트입니다.<br><br>현실에서는 해결할 수 없는 고민과 스트레스를 이 웹사이트에 해소해보세요.</h3></a></span>
+          <span>저희 웹사이트에서는 당신 일상의 고민을 들어주며<br>비현실적인 해소방법을 제공하는 사이트입니다.<br><br>현실에서는 해결할 수 없는 고민과 스트레스를 이 웹사이트에 해소해보세요.</h3></span>
       </div>
 
-
+ <div id="menuout"></div>
 
 <script>
 
@@ -198,13 +213,14 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
             toggle = "on";
             menu.style.opacity = "1";
             menu.style.transition = "all 0.3s";
-            menu.style.height = "240px";
+            menu.style.height = "200px";
             menu.style.visibility = "visible";
             menu.style.transition = "all 0.3s";
             menuline.style.opacity = "0";
             menuline.style.transition = "all 0.5s";
             menuline2.style.visibility = "visible";
             menuline2.style.transition = "all 0.5s";
+            menuout.style.display = "inline";
             } 
             else if (toggle = "on"){
             toggle = "off";
@@ -217,53 +233,116 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
             menuline.style.transition = "all 0.5s";
             menuline2.style.visibility = "hidden";
             menuline2.style.transition = "all 0.5s";
+            menuout.style.display = "none";
+
             }
       }
 
+        
+       menuout.onclick = function(){
+        if(toggle == "off"){
+          toggle = "on";
+            menu.style.opacity = "0";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "0px";
+            menu.style.visibility = "hidden";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "1";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.5s";
+            menuout.style.display = "none";
+            } else if (toggle = "on"){
+            toggle = "off";
+            menuout.style.display = "none";
+            menu.style.opacity = "0";
+
+            }
+          }
+
 
 /*(1), (2), (3)*/
-var toggle = "off";
-        
-       txtbox2.onclick = function(){
-        if(toggle == "off"){
-            txtbox1.style.opacity = "0";
-            txtbox11.style.opacity = "1";
-            txtbox1.style.transition = "all 0.5s";
-            txtbox11.style.transition = "all 0.5s";
-            txtbox2.style.opacity = "0";
-            txtbox22.style.opacity = "1";
-            txtbox2.style.transition = "all 0.5s";
-            txtbox22.style.transition = "all 0.5s";
-            txtbox2.style.visibility = "visible";
-            txtbox22.style.visibility = "visible";
-            txtbox1.style.visibility = "visible";
-            txtbox11.style.visibility = "visible";
-            topbtn.style.display = "inline";
-            topbtn.style.transition = "all 0.4s";
-            } 
-      }
 
-var toggle = "off";
-        
-       txtbox22.onclick = function(){
+
+txtbox1.onclick = function(){
         if(toggle == "off"){
-            txtbox11.style.opacity = "0";
-            txtbox111.style.opacity = "1";
+
+            txtbox1.style.opacity = "1";
+            txtbox2.style.opacity = "1";
+            txtbox1.style.visibility = "visible";
+            txtbox2.style.visibility = "visible";
+            txtbox1.style.transition = "all 0.5s";
+            txtbox2.style.transition = "all 0.5s";
+            flag.style.opacity = "1";
+
+            
+            txtbox11.style.opacity = "0.5";
+            txtbox111.style.opacity = "0.5";
             txtbox11.style.transition = "all 0.5s";
             txtbox111.style.transition = "all 0.5s";
+            flag2.style.opacity = "0.5";
+            flag3.style.opacity = "0.5";
+
             txtbox22.style.opacity = "0";
-            txtbox222.style.opacity = "1";
+            txtbox222.style.opacity = "0";
             txtbox22.style.transition = "all 0.5s";
-            txtbox222.style.transition = "all 0.5s";
-            txtbox22.style.visibility = "visible";
-            txtbox222.style.visibility = "visible";
-            txtbox11.style.visibility = "visible";
-            txtbox111.style.visibility = "visible";
+            txtbox22.style.transition = "all 0.5s";
             } 
       }
+        </script>
+<script type="text/javascript">
 
 
+txtbox11.onclick = function(){
+        if(toggle == "off"){
 
+            txtbox11.style.opacity = "1";
+            txtbox22.style.opacity = "1";
+            txtbox11.style.visibility = "visible";
+            txtbox22.style.visibility = "visible";
+            txtbox11.style.transition = "all 0.5s";
+            txtbox22.style.transition = "all 0.5s";
+            flag2.style.opacity = "1";
+
+            
+            txtbox111.style.opacity = "0.5";
+            txtbox1.style.opacity = "0.5";
+            txtbox111.style.transition = "all 0.5s";
+            txtbox1.style.transition = "all 0.5s";
+            flag.style.opacity = "0.5";
+            flag3.style.opacity = "0.5";
+
+            txtbox222.style.opacity = "0";
+            txtbox2.style.opacity = "0";
+            txtbox222.style.transition = "all 0.5s";
+            txtbox222.style.transition = "all 0.5s";
+            } 
+      }
+</script>
+<script type="text/javascript">
+      txtbox111.onclick = function(){
+        if(toggle == "off"){
+
+            txtbox111.style.opacity = "1";
+            txtbox222.style.opacity = "1";
+            txtbox111.style.transition = "all 0.5s";
+            txtbox222.style.transition = "all 0.5s";
+            flag3.style.opacity = "1";
+
+            
+            txtbox1.style.opacity = "0.5";
+            txtbox11.style.opacity = "0.5";
+            txtbox1.style.transition = "all 0.5s";
+            txtbox11.style.transition = "all 0.5s";
+            flag2.style.opacity = "0.5";
+            flag.style.opacity = "0.5";
+
+            txtbox2.style.opacity = "0";
+            txtbox22.style.opacity = "0";
+            txtbox2.style.transition = "all 0.5s";
+            txtbox22.style.transition = "all 0.5s";
+            } 
+      }
 
 
 /*var toggle = "off";
@@ -288,8 +367,6 @@ var toggle = "off";
       }*/
 </script>
 
-
-<script src="js/main.js"></script>
 
 </body>
 </html>

@@ -33,10 +33,12 @@ span:hover { color:white; background: #021619; text-decoration: wavy; transition
 
 #menuline2 {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; visibility: hidden; z-index: 998;}
 #menuline2:hover { opacity: .85; transition: all 0.2s; }
-
-#menu {width: 25%; height: 0px; position: absolute; left: 36.5%; bottom: 12%; overflow: hidden; z-index: 800; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 999; background: white; box-shadow: 2px 2px 12px #9f9f9f;}
-#menuout {width: 1920px; height: 1080px; background: grey; z-index: 998; position: absolute; top: 0%; left: 0%; display: none; opacity: 0;}
+#menu {width: 12%; height: 0px; position: absolute; left: 43%; bottom: 12%; overflow: hidden; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 999; background: white; box-shadow: 2px 2px 12px #9f9f9f; text-align: center;}
 #hover08:hover {opacity: 0.8;}
+
+#menuout {width: 100%; height: 100%; position: absolute; top: 0%; left: 0%; display: none; z-index: 998;}
+
+#menuout:hover {cursor: url(./img/cursor3.png) 12 12, auto;}
 
 #flag {width: 10%; position: absolute; left: 0%; top: 17%; overflow: hidden; }
 
@@ -148,7 +150,7 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
     <img src="./img/menuline22.png" id="menuline" title="menu">
     <img src="./img/menuline222.png" id="menuline2">
     <div id="menu">
-      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 23%; padding-right: 10%; padding-bottom: 5%;" title="main page"></a><br>
+      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 40%; margin: 0 auto; padding-bottom: 5%; margin-bottom: 5%;" title="main page"></a><br>
       <a href="register.html"><h8>REGISTER</h8></a><br>
       <a href="productlist.html"><h8>PRODUCT</h8></a>
     </div>
@@ -205,8 +207,34 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
             menuline2.style.visibility = "hidden";
             menuline2.style.transition = "all 0.5s";
             menuout.style.display = "none";
+
             }
       }
+
+        
+       menuout.onclick = function(){
+        if(toggle == "off"){
+          toggle = "on";
+            menu.style.opacity = "0";
+            menu.style.transition = "all 0.3s";
+            menu.style.height = "0px";
+            menu.style.visibility = "hidden";
+            menu.style.transition = "all 0.3s";
+            menuline.style.opacity = "1";
+            menuline.style.transition = "all 0.5s";
+            menuline2.style.visibility = "hidden";
+            menuline2.style.transition = "all 0.5s";
+            menuout.style.display = "none";
+
+            menuline.style.opacity = "1";
+            menuline.style.visible = "visible";
+            } else if (toggle = "on"){
+            toggle = "off";
+            menuout.style.display = "none";
+            menu.style.opacity = "0";
+
+            }
+          }
 </script>
 <script type="text/javascript">
 

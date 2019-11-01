@@ -11,11 +11,11 @@
 <style>
 html{scroll-behavior: smooth; cursor: url(./img/cursor.png) 12 12, auto; overflow: hidden;} 
 
-span:hover {color: white; cursor: url('./img/cursor2.png') 12 12, default !important;}
+span:hover {color: white; }
 
 body { background:url('./img/list111.jpg'); 
   background-size: 100%; background-opacity:0.5; }
-a{cursor: url(./img/cursor2.png) 12 12, auto; color: #021619;}
+a{cursor: url(./img/cursor2.png) 12 12, auto; color: #021619; text-decoration: none;}
 a:link {text-decoration: none;}
 
 span:hover { color:white; background: #021619; text-decoration: wavy; transition: all 0.3s;}
@@ -28,14 +28,17 @@ span:hover { color:white; background: #021619; text-decoration: wavy; transition
 
 #topline {width: 100%; height: 10.2%; position: absolute; top: 0%; left: 0%; border-bottom: 1.5px solid #021619; z-index: 998;}
 
-#menuline {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; z-index: 985;}
+#menuline {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; z-index: 999;}
 #menuline:hover { opacity: .85; transition: all 0.2s; }
 
-#menuline2 {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; visibility: hidden; z-index: 984;}
+#menuline2 {width: 3.5%; position: absolute; left: 48.2%; bottom: 3%; visibility: hidden; z-index: 998;}
 #menuline2:hover { opacity: .85; transition: all 0.2s; }
-
-#menu {width: 25%; height: 0px; position: absolute; left: 36.5%; bottom: 12%; overflow: hidden; z-index: 800; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 980; background: white; box-shadow: 2px 2px 12px #9f9f9f;}
+#menu {width: 12%; height: 0px; position: absolute; left: 43%; bottom: 12%; overflow: hidden; padding: 1%; border: 2px solid #021619; visibility: hidden; z-index: 999; background: white; box-shadow: 2px 2px 12px #9f9f9f; text-align: center;}
 #hover08:hover {opacity: 0.8;}
+
+#menuout {width: 100%; height: 100%; position: absolute; top: 0%; left: 0%; display: none; z-index: 998;}
+
+#menuout:hover {cursor: url(./img/cursor3.png) 12 12, auto;}
 
 #flag {width: 10%; position: absolute; left: 0%; top: 17%; overflow: hidden; }
 
@@ -78,8 +81,8 @@ span:hover { color:white; background: #021619; text-decoration: wavy; transition
 #gradient:hover {cursor: url('./img/cursor3.png') 12 12, default !important;}
 
 
-#preimg {width: 48%; position: absolute; left: 55%; top: 12%; -webkit-filter: drop-shadow(7px 12px 20px #fff); z-index: 999;}
-#preimg:hover {-webkit-filter: drop-shadow(14px 18px 40px #fff); z-index: 999; cursor: url('./img/capsulecursor.png') 12 12, default !important;}
+#preimg {width: 18%; position: absolute; left: 58%; top: 18%; -webkit-filter: drop-shadow(7px 12px 20px #fff); z-index: 998;}
+#preimg:hover {-webkit-filter: drop-shadow(14px 18px 40px #fff); z-index: 998; cursor: url('./img/capsulecursor.png') 12 12, default !important;}
 
 
 #alltxt {width: 33%; height: 100%; overflow: hidden; position: relative; margin-left: 0%; margin-top: 0%; background: white; border: 2px solid #021619;}
@@ -91,9 +94,9 @@ span:hover { color:white; background: #021619; text-decoration: wavy; transition
 #txtbox3 {width: 100%; height: 4.5%; padding-left: 3%; border-bottom: 2px solid #021619; background: white;}
 #txtbox4 {width: 100%; height: 4.5%; padding-left: 3%; border-bottom: 2px solid #021619; background: white;}
 
-#txtmore1 {width: 100%; height: 0%; margin-bottom: 3%; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; opacity: 0; visibility: hidden; background: white; }
-#txtmore2 {width: 100%; height: 0%; margin-bottom: 3%;padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; opacity: 0; visibility: hidden; background: white; }
-#txtmore3 {width: 100%; height: 700px; margin-bottom: 3%; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; border-top: 0.1px solid #021619;  background: white;}
+#txtmore1 {width: 100%; height: 700px; margin-bottom: 3%; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619;  background: white;border-top: 0.1px solid #021619; }
+#txtmore2 {width: 100%; height: 0%; margin-bottom: 3%;padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; opacity: 0; visibility: hidden; background: white; border-top: 0.1px solid #021619;}
+#txtmore3 {width: 100%; height: 0%; margin-bottom: 3%; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; border-top: 0.1px solid #021619; opacity: 0; visibility: hidden; background: white;}
 #txtmore4 {width: 100%; height: 0%; padding-left: 5%; margin-top: -0.5%; border: 2px solid #021619; border-left: 0.1px solid #021619; border-top: 0.1px solid #021619; background: white;}
 
 #righttop {width: 10%; transform: rotateZ(90deg); position: relative; float: left;}
@@ -144,33 +147,33 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
   <div>
 
 
-    <img src="./img/menuline_2.png" id="menuline" title="menu">
-    <img src="./img/menuline2.png" id="menuline2">
+    <img src="./img/menuline22.png" id="menuline" title="menu">
+    <img src="./img/menuline222.png" id="menuline2">
     <div id="menu">
-      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 37%; padding-right: 10%; padding-bottom: 5%;" title="main page"></a><br>
+      <a href="index.html"><img src="./img/logo222.png" id="hover08" style="width: 40%; margin: 0 auto; padding-bottom: 5%; margin-bottom: 5%;" title="main page"></a><br>
       <a href="register.html"><h8>REGISTER</h8></a><br>
       <a href="productlist.html"><h8>PRODUCT</h8></a>
     </div>
-  </div>
   </div>
     
 
     <div id="gradient">
       
       <img src="./img/grid_1.png" id="gradient" style="height: 100%; width: 100%; top: 0%; background: #021619;">
-      <img src="./img/capsule2.png" id="preimg" class="drag" style="width: 22%; ">
+      <img src="./img/capsule2.png" id="preimg" class="drag">
       <div id="alltxt">
         <div id="txtbox1"><h3 style="margin-top: 7%;">1_ DESCRIPTION</h3></div>
-        <div id="txtmore1"><h4><span>#생활 #건강 #외로움</span><br><br>
-          <span>겨울만 되면 무섭게 감기에 걸린다고?<br>심지어 아픈 당신을 도와줄 사람도 없다고?</span><br><br>먹어도 졸리지 않은 완치율 100%에 달하는 감기약! <br><br>평범한 약으로 보이겠지만 <br>안에는 강력한 용사가 임무를 기다리고 있다.<br><br>바로 내장마을에 찾아가 <span>세균을 죽이는 특급 임무 말이다!</span></h4></div>
+        <div id="txtmore1"><h4><b>#생활 #건강 #동심</b><br><br>
+          <span>평범한 감기약으로 보이지만,<br>안에는 강력한 용사가 임무를 기다리고 있다.</span><br><br>바로 내장마을에 찾아가<br>세균을 죽이는 임무 말이다!<br><br><span>감기기운이 있을 떄부터 복용해도 되는 약이며,</span><br>완치율이 100%에 이르는 약이니<br>확실할 때만 복용해주세요.<br><br><span>동심을 지켜주는 감기약,<br>용사 감기 완치약 !</span><br></h4></div>
         <div id="txtbox2"><h3 style="margin-top: 7%;">2_ PURPOSE</h3></div>
-        <div id="txtmore2"><h4><span>평일엔 잠들새 없이 바쁘고<br>주말엔 눈뜰새 없이 잔다고요?</span><br><br>이젠 잠을 저장해주어 십분만 자도<br>지난 밤의 <span>저장해놓은 잠</span>으로<br>피곤을 없앨 수 있어요!</h4></div>
+        <div id="txtmore2"><h4><span>용사 완치 감기약은 홀로 감기의 아픔과 서러움에<br>힘겨워하는 익명의 자취생이 접수한 불편입니다.</span><br><br>이 약은 감기 뿐만 아니라 한결 위로가 되는 <br>마음치료 약이라고 할 수 있습니다. <br><br>혼자 있는 고독한 방에서 감기와 기침 때문에<br>힘들어하는 이들을 위한 물품이었습니다.</h4></div>
         <div id="txtbox3"><h3 style="margin-top: 7%;">3_ 5W1H</h3></div>
         <div id="txtmore3"><h4 style="line-height: 1.5;">
-          <b>WHO_</b><br>미대에 다니는 20대 익명의 <span>도토리 키재기님</span><br><br><b>WHERE_</b><br>본인의 방 침대에서<br><br><b>WHEN_</b><br>과제에 밀려 <span>잘 수 없는 상황</span>이나<br>어젯밤에 많이 잔 시간이 아까워질때<br><br><b>WHAT_</b><br>내가 <span>피곤을 저장</span>해둘 수 있는 저장함이<br><br><b>WHY_</b><br>수면을 푹 취했을 때와 그러지 않았을 때의 차이가 <span>스스로 애잔할 때</span><br><br><b>HOW_</b><br>피곤함을 알아서 저장해줘서 나중에 <span>저장된 피곤함과<br>수면을 옮길 수 있게</span> </h4></div>
+          <b>WHO_</b><br>혼자 자취하는 20대 익명의 <span>요정님</span><br><br><b>WHERE_</b><br>외로운 자취방 안에서<br><br><b>WHEN_</b><br>아무도 없이 혼자 감기에 골골대는 때<br><br><b>WHAT_</b><br><span>내 외로움과 기침을 동시에 달래줄 수 있는 무언가</span><br><br><b>WHY_</b><br><span>혼자 있는 것도 서러운데 아프면 두배로 서러우니까</span><br><br><b>HOW_</b><br>약으로서의 기능도 좋으면서<br>내 외로움도 동심으로나마 지켜줄 수 있는 방식의 무언가.</h4></div>
       </div>
     </div>
-  
+
+  <div id="menuout"></div>
 
 
 <script type="text/javascript">
@@ -183,13 +186,14 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
             toggle = "on";
             menu.style.opacity = "1";
             menu.style.transition = "all 0.3s";
-            menu.style.height = "240px";
+            menu.style.height = "200px";
             menu.style.visibility = "visible";
             menu.style.transition = "all 0.3s";
             menuline.style.opacity = "0";
             menuline.style.transition = "all 0.5s";
             menuline2.style.visibility = "visible";
             menuline2.style.transition = "all 0.5s";
+            menuout.style.display = "inline";
             } 
             else if (toggle = "on"){
             toggle = "off";
@@ -202,23 +206,16 @@ h8:hover {cursor: url('./img/cursor2.png') 12 12, default !important; color: whi
             menuline.style.transition = "all 0.5s";
             menuline2.style.visibility = "hidden";
             menuline2.style.transition = "all 0.5s";
+            menuout.style.display = "none";
+
             }
       }
-</script>
-<script type="text/javascript">
-function unlogo(x) {
-    menu.style.opacity = "1";
-            menu.style.transition = "all 0.3s";
-            menu.style.height = "240px";
-            menu.style.visibility = "visible";
-            menu.style.transition = "all 0.3s";
-            menuline.style.opacity = "0";
-            menuline.style.transition = "all 0.5s";
-            menuline2.style.visibility = "visible";
-            menuline2.style.transition = "all 0.5s";
-  }
-function reallogo(x) {
-    menu.style.opacity = "0";
+
+        
+       menuout.onclick = function(){
+        if(toggle == "off"){
+          toggle = "on";
+            menu.style.opacity = "0";
             menu.style.transition = "all 0.3s";
             menu.style.height = "0px";
             menu.style.visibility = "hidden";
@@ -227,7 +224,19 @@ function reallogo(x) {
             menuline.style.transition = "all 0.5s";
             menuline2.style.visibility = "hidden";
             menuline2.style.transition = "all 0.5s";
-  }
+            menuout.style.display = "none";
+
+            menuline.style.opacity = "1";
+            menuline.style.visible = "visible";
+            } else if (toggle = "on"){
+            toggle = "off";
+            menuout.style.display = "none";
+            menu.style.opacity = "0";
+
+            }
+          }
+</script>
+<script type="text/javascript">
 
 //작품 설명 칸
 
